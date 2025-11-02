@@ -7,10 +7,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center">
-                <Briefcase className="h-6 w-6 text-white" />
+             
+               <div className="h-10 flex-1  flex items-center justify-start px-3">
+                <img
+                  src="/Title.png"
+                  alt="Title"
+                  className="h-full w-full max-w-[220px] object-cover block ml-[-20px]"
+                  style={{ clipPath: 'inset(8% 0 5% 0)' }}
+                />
               </div>
-              <span className="font-bold text-xl">InternMatch</span>
             </div>
             <p className="text-sm text-muted-foreground">
               แพลตฟอร์มจับคู่งานสำหรับนักศึกษาและบริษัท 
@@ -41,7 +46,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                contact@internmatch.th
+                contact@U-Connect.th
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -56,7 +61,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>&copy; 2025 InternMatch. All rights reserved.</p>
+          <p>&copy; 2025 U-Connect. All rights reserved.</p>
         </div>
       </div>
     </footer>
