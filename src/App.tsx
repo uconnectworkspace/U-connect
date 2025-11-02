@@ -20,6 +20,12 @@ import Applicants from "./pages/company/Applicants";
 // University Pages
 import UniversityDashboard from "./pages/university/Dashboard";
 
+// Admin Pages
+import AdminDashboard from "./pages/admin/Dashboard";
+import ManageStudents from "./pages/admin/ManageStudents";
+import ManageCompanies from "./pages/admin/ManageCompanies";
+import ManageUniversities from "./pages/admin/ManageUniversities";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -44,6 +50,12 @@ const App = () => (
           
           {/* University Routes */}
           <Route path="/university/dashboard" element={<UniversityDashboard />} />
+          
+          {/* Admin Routes */}
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/students" element={<ManageStudents />} />
+          <Route path="/admin/companies" element={<ManageCompanies />} />
+          <Route path="/admin/universities" element={<ManageUniversities />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
