@@ -19,12 +19,19 @@ import Applicants from "./pages/company/Applicants";
 
 // University Pages
 import UniversityDashboard from "./pages/university/Dashboard";
+import Approvals from "./pages/university/Approvals";
+import Reports from "./pages/university/Reports";
+import Announcements from "./pages/university/Announcements";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/Dashboard";
 import ManageStudents from "./pages/admin/ManageStudents";
 import ManageCompanies from "./pages/admin/ManageCompanies";
 import ManageUniversities from "./pages/admin/ManageUniversities";
+import AdminReports from "./pages/admin/Reports";
+
+// Job Details
+import JobDetails from "./pages/student/JobDetails";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +48,7 @@ const App = () => (
           {/* Student Routes */}
           <Route path="/student/dashboard" element={<StudentDashboard />} />
           <Route path="/student/jobs" element={<JobSearch />} />
+          <Route path="/student/jobs/:id" element={<JobDetails />} />
           <Route path="/student/applications" element={<Applications />} />
           
           {/* Company Routes */}
@@ -50,12 +58,16 @@ const App = () => (
           
           {/* University Routes */}
           <Route path="/university/dashboard" element={<UniversityDashboard />} />
+          <Route path="/university/approvals" element={<Approvals />} />
+          <Route path="/university/reports" element={<Reports />} />
+          <Route path="/university/announcements" element={<Announcements />} />
           
           {/* Admin Routes */}
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/students" element={<ManageStudents />} />
           <Route path="/admin/companies" element={<ManageCompanies />} />
           <Route path="/admin/universities" element={<ManageUniversities />} />
+          <Route path="/admin/reports" element={<AdminReports />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
