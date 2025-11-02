@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import StudentDashboard from "./pages/student/Dashboard";
 import JobSearch from "./pages/student/JobSearch";
 import Applications from "./pages/student/Applications";
+import StudentProfile from "./pages/student/Profile";
 
 // Company Pages
 import CompanyDashboard from "./pages/company/Dashboard";
@@ -48,6 +49,7 @@ const App = () => (
           {/* Student Routes */}
           <Route path="/student/dashboard" element={<StudentDashboard />} />
           <Route path="/student/jobs" element={<JobSearch />} />
+          <Route path="/student/profile" element={<StudentProfile />} />
           <Route path="/student/jobs/:id" element={<JobDetails />} />
           <Route path="/student/applications" element={<Applications />} />
           

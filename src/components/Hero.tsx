@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
@@ -24,7 +26,7 @@ const Hero = () => {
             
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               เชื่อมโยง
-              <span className="block gradient-primary bg-clip-text text-transparent">
+              <span className="block text-primary bg-clip-text">
                 นักศึกษา
               </span>
               กับโอกาสใหม่
@@ -36,7 +38,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg h-14 px-8 shadow-primary">
+              <Button size="lg" className="text-lg h-14 px-8 shadow-primary" onClick={() => navigate('/auth')}>
                 เริ่มต้นใช้งาน
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

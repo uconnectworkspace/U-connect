@@ -14,6 +14,8 @@ const Auth = () => {
   const role = searchParams.get("role");
   
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const getRoleTitle = () => {
     switch (role) {
@@ -27,12 +29,33 @@ const Auth = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate API call
+
+    // Simple mock auth
     setTimeout(() => {
-      toast.success("ลงทะเบียนสำเร็จ!");
+      const normalized = email.trim().toLowerCase();
+      const validPassword = password === "1234678";
+
+      if (!validPassword) {
+        toast.error("รหัสผ่านไม่ถูกต้อง (ใช้: 1234678)");
+        setIsLoading(false);
+        return;
+      }
+
+      if (normalized === "student@gmail.com") {
+        toast.success("เข้าสู่ระบบในฐานะนักศึกษา");
+        navigate("/student/dashboard");
+      } else if (normalized === "uni@gmail.com" || normalized === "university@gmail.com") {
+        toast.success("เข้าสู่ระบบในฐานะมหาวิทยาลัย");
+        navigate("/university/dashboard");
+      } else if (normalized === "comp@gmail.com" || normalized === "company@gmail.com") {
+        toast.success("เข้าสู่ระบบในฐานะบริษัท");
+        navigate("/company/dashboard");
+      } else {
+        toast.error("ไม่พบบัญชีผู้ใช้ กรุณาใช้ student@gmail.com, uni@gmail.com หรือ comp@gmail.com");
+      }
+
       setIsLoading(false);
-    }, 1500);
+    }, 800);
   };
 
   return (
@@ -78,6 +101,8 @@ const Auth = () => {
                       type="email"
                       placeholder="example@email.com"
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="space-y-2">
@@ -87,7 +112,13 @@ const Auth = () => {
                       type="password"
                       placeholder="••••••••"
                       required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
+                  </div>
+                  {/* Mock credentials helper */}
+                  <div className="text-sm text-muted-foreground">
+                    ทดสอบบัญชี: student@gmail.com, uni@gmail.com, comp@gmail.com — รหัสผ่าน: 1234678
                   </div>
                   <Button
                     type="submit"

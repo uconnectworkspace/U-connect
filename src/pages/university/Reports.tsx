@@ -31,7 +31,7 @@ const Reports = () => {
           <Button variant="ghost" onClick={() => navigate('/university/dashboard')} className="mb-4">
             ← กลับไปแดชบอร์ด
           </Button>
-          <h1 className="text-3xl font-bold mb-2">รายงานและสstatistics 📊</h1>
+          <h1 className="text-3xl font-bold mb-2">รายงานและสถิติ 📊</h1>
           <p className="text-muted-foreground">ข้อมูลสถิติและการวิเคราะห์การจับคู่งาน</p>
         </div>
 
@@ -190,7 +190,7 @@ const Reports = () => {
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">
                     <div 
-                      className="bg-gradient-primary h-2 rounded-full transition-all" 
+                      className="bg-green-500 h-2 rounded-full transition-all" 
                       style={{ width: `${dept.rate}%` }}
                     />
                   </div>

@@ -35,7 +35,7 @@ const Navbar = () => {
     }
     if (isUniversity) {
       return [
-        { label: 'แดshบอร์ด', path: '/university/dashboard' },
+        { label: 'แดชบอร์ด', path: '/university/dashboard' },
         { label: 'อนุมัติบริษัท', path: '/university/approvals' },
         { label: 'รายงาน', path: '/university/reports' },
         { label: 'ประกาศ', path: '/university/announcements' },
@@ -61,10 +61,19 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
-              <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center">
-                <Briefcase className="h-6 w-6 text-white" />
+              
+              
+
+              {/* Title: grow to fill remaining nav space */}
+              <div className="h-10 flex-1  flex items-center justify-start px-3">
+                <img
+                  src="/Title.png"
+                  alt="Title"
+                  className="h-full w-full max-w-[220px] object-cover block"
+                  style={{ clipPath: 'inset(8% 0 5% 0)' }}
+                />
               </div>
-              <span className="font-bold text-xl">InternMatch</span>
+            
             </div>
 
             {navLinks.length > 0 && (

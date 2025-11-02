@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Kanit', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
