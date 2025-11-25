@@ -17,6 +17,7 @@ import StudentProfile from "./pages/student/Profile";
 import CompanyDashboard from "./pages/company/Dashboard";
 import PostJob from "./pages/company/PostJob";
 import Applicants from "./pages/company/Applicants";
+import CompanyMessages from "@/pages/company/Messages";
 
 // University Pages
 import UniversityDashboard from "./pages/university/Dashboard";
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/company/dashboard" element={<CompanyDashboard />} />
           <Route path="/company/post-job" element={<PostJob />} />
           <Route path="/company/applicants" element={<Applicants />} />
+          <Route path="/company/messages" element={<CompanyMessages />} />
           
           {/* University Routes */}
           <Route path="/university/dashboard" element={<UniversityDashboard />} />

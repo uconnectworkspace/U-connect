@@ -91,20 +91,25 @@ const StudentDashboard = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-lg">
                 <div
-                  className="flex transition-transform duration-500 w-full"
+                  className="flex transition-transform duration-500"
                   style={{ width: `${promotions.length * 100}%`, transform: `translateX(-${promoIndex * (100 / promotions.length)}%)` }}
                 >
                   {promotions.map((p) => (
-                    <div key={p.id} className="min-w-full">
-                      <Card className="border bg-gradient-to-r from-primary/5 to-secondary/5 py-[15vh]">
-                        <CardContent className="flex flex-col items-start justify-between gap-10">
+                    <div
+                      key={p.id}
+                      className="flex-shrink-0 px-4" 
+                      style={{ width: `${100 / promotions.length}%` }}
+                    >
+                      {/* responsive heights: small / md / lg */}
+                      <Card className="border bg-gradient-to-r from-primary/5 to-secondary/5 h-48 md:h-72 lg:h-96">
+                        <CardContent className="h-full flex flex-col items-start justify-between gap-4 p-4 md:p-6 lg:p-8">
                           <div className="flex-1">
-                            <h3 className="text-lg font-semibold">{p.title}</h3>
-                            <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
+                            <h3 className="text-base md:text-lg lg:text-2xl font-semibold leading-tight">{p.title}</h3>
+                            <p className="text-xs md:text-sm text-muted-foreground mt-2">{p.desc}</p>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <Button onClick={() => navigate(`/student/jobs?company=${p.companyQuery}`)}>ดูตำแหน่งงาน</Button>
-                            <Button variant="outline" onClick={() => navigate(`/student/contact-company/${p.companyQuery}`)}>ติดต่อบริษัท</Button>
+                          <div className="flex items-center gap-2">
+                            <Button size="sm" onClick={() => navigate(`/student/jobs?company=${p.companyQuery}`)}>ดูตำแหน่งงาน</Button>
+                            <Button size="sm" variant="outline" onClick={() => navigate(`/student/contact-company/${p.companyQuery}`)}>ติดต่อบริษัท</Button>
                           </div>
                         </CardContent>
                       </Card>
@@ -112,7 +117,7 @@ const StudentDashboard = () => {
                   ))}
                 </div>
               </div>
-
+  
               {/* Prev/Next controls */}
               <button
                 type="button"
@@ -130,14 +135,14 @@ const StudentDashboard = () => {
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
-
+  
               {/* Dots */}
               <div className="absolute left-1/2 bottom-3 -translate-x-1/2 flex gap-2">
                 {promotions.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setPromoIndex(i)}
-                    className={`h-2 w-8 rounded-full ${i === promoIndex ? "bg-primary" : "bg-muted/50"}`}
+                    className={`h-2 w-6 rounded-full ${i === promoIndex ? "bg-primary" : "bg-muted/50"}`}
                     aria-label={`Go to slide ${i + 1}`}
                   />
                 ))}

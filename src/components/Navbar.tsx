@@ -7,6 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const Navbar = () => {
         { label: 'แดชบอร์ด', path: '/company/dashboard' },
         { label: 'ประกาศงาน', path: '/company/post-job' },
         { label: 'จัดการผู้สมัคร', path: '/company/applicants' },
+        { label: 'ข้อความ', path: '/company/messages' },
       ];
     }
     if (isUniversity) {
@@ -113,6 +115,14 @@ const Navbar = () => {
               <Button variant="outline" onClick={() => navigate("/")}>
                 ออกจากระบบ
               </Button>
+            )}
+          </div>
+
+          <div className="hidden md:flex items-center gap-2">
+            {isCompany && (
+              <Link to="/company/messages" className="text-sm hover:underline">
+                ติดต่อมหาวิทยาลัย
+              </Link>
             )}
           </div>
         </div>
