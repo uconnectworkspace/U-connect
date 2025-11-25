@@ -4,7 +4,7 @@ const Features = () => {
   const features = [
     {
       icon: Sparkles,
-      title: "จับคู่อัจฉริยะ",
+      title: "จับคู่อัจฉริยะ", //dee
       description: "ระบบ AI ช่วยจับคู่นักศึกษากับบริษัทที่เหมาะสมที่สุด"
     },
     {
@@ -29,7 +29,7 @@ const Features = () => {
     },
     {
       icon: MessageSquare,
-      title: "สื่อสารง่าย",
+      title: "สื่อสารได้ง่าย",
       description: "แชทและประสานงานได้โดยตรงในระบบเดียว"
     }
   ];
