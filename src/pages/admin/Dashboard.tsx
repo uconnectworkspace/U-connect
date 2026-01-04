@@ -10,52 +10,52 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const overallStats = [
-    { label: "นักศึกษาทั้งหมด", value: "2,847", icon: Users, color: "text-primary", trend: "+18%" },
-    { label: "บริษัททั้งหมด", value: "156", icon: Building2, color: "text-success", trend: "+12%" },
-    { label: "มหาวิทยาลัยพาร์ทเนอร์", value: "24", icon: GraduationCap, color: "text-accent", trend: "+5%" },
-    { label: "การจับคู่สำเร็จ", value: "1,423", icon: TrendingUp, color: "text-warning", trend: "+25%" },
+    { label: "Total Students", value: "2,847", icon: Users, color: "text-primary", trend: "+18%" },
+    { label: "Total Companies", value: "156", icon: Building2, color: "text-success", trend: "+12%" },
+    { label: "Partner Universities", value: "24", icon: GraduationCap, color: "text-accent", trend: "+5%" },
+    { label: "Successful Matches", value: "1,423", icon: TrendingUp, color: "text-warning", trend: "+25%" },
   ];
 
   const pendingActions = [
-    { id: 1, type: "company", entity: "บริษัท Tech Innovation Ltd.", action: "รออนุมัติ", priority: "high" },
-    { id: 2, type: "university", entity: "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้า", action: "รออนุมัติ", priority: "high" },
-    { id: 3, type: "student", entity: "รายงานพฤติกรรมผิดปกติ - นักศึกษา ID #1234", action: "ต้องตรวจสอบ", priority: "medium" },
-    { id: 4, type: "company", entity: "บริษัท Digital Solutions Co.", action: "ขอยกเลิกการลงทะเบียน", priority: "low" },
+    { id: 1, type: "company", entity: "Tech Innovation Ltd.", action: "Pending Approval", priority: "high" },
+    { id: 2, type: "university", entity: "King Mongkut's University of Technology", action: "Pending Approval", priority: "high" },
+    { id: 3, type: "student", entity: "Suspicious Behavior Report - Student ID #1234", action: "Needs Review", priority: "medium" },
+    { id: 4, type: "company", entity: "Digital Solutions Co.", action: "Cancellation Request", priority: "low" },
   ];
 
   const recentActivities = [
-    { id: 1, message: "มหาวิทยาลัยมหิดล ได้รับการอนุมัติเข้าร่วมระบบ", time: "5 นาทีที่แล้ว", icon: CheckCircle, color: "text-green-600" },
-    { id: 2, message: "บริษัท ABC Tech ถูกปฏิเสธการเข้าร่วม", time: "1 ชั่วโมงที่แล้ว", icon: XCircle, color: "text-red-600" },
-    { id: 3, message: "นักศึกษา 45 คน ลงทะเบียนใหม่วันนี้", time: "2 ชั่วโมงที่แล้ว", icon: Users, color: "text-blue-600" },
-    { id: 4, message: "การจับคู่งาน 12 รายการสำเร็จในวันนี้", time: "3 ชั่วโมงที่แล้ว", icon: Briefcase, color: "text-purple-600" },
+    { id: 1, message: "Mahidol University has been approved to join the system", time: "5 minutes ago", icon: CheckCircle, color: "text-green-600" },
+    { id: 2, message: "ABC Tech Company was rejected from joining", time: "1 hour ago", icon: XCircle, color: "text-red-600" },
+    { id: 3, message: "45 students registered today", time: "2 hours ago", icon: Users, color: "text-blue-600" },
+    { id: 4, message: "12 job matches successful today", time: "3 hours ago", icon: Briefcase, color: "text-purple-600" },
   ];
 
   const topStudents = [
-    { id: 1, name: "สมชาย ใจดี", university: "จุฬาลงกรณ์มหาวิทยาลัย", applications: 23, hires: 5, rating: 4.9 },
-    { id: 2, name: "สมหญิง ขยัน", university: "มหาวิทยาลัยธรรมศาสตร์", applications: 19, hires: 4, rating: 4.8 },
-    { id: 3, name: "ทดสอบ เทส", university: "มหาวิทยาลัยเกษตรศาสตร์", applications: 18, hires: 4, rating: 4.7 },
+    { id: 1, name: "Somchai Jaidee", university: "Chulalongkorn University", applications: 23, hires: 5, rating: 4.9 },
+    { id: 2, name: "Somying Khayan", university: "Thammasat University", applications: 19, hires: 4, rating: 4.8 },
+    { id: 3, name: "Test Test", university: "Kasetsart University", applications: 18, hires: 4, rating: 4.7 },
   ];
 
   const topCompanies = [
-    { id: 1, name: "บริษัท เทคโนโลยี A", jobs: 45, hires: 38, rating: 4.8 },
-    { id: 2, name: "บริษัท การเงิน B", jobs: 32, hires: 28, rating: 4.7 },
-    { id: 3, name: "บริษัท Consulting C", jobs: 28, hires: 24, rating: 4.6 },
+    { id: 1, name: "Technology A Company", jobs: 45, hires: 38, rating: 4.8 },
+    { id: 2, name: "Finance B Company", jobs: 32, hires: 28, rating: 4.7 },
+    { id: 3, name: "Consulting C Company", jobs: 28, hires: 24, rating: 4.6 },
   ];
 
   const topUniversities = [
-    { id: 1, name: "จุฬาลงกรณ์มหาวิทยาลัย", students: 856, placements: 623, rate: "72.8%" },
-    { id: 2, name: "มหาวิทยาลัยธรรมศาสตร์", students: 742, placements: 518, rate: "69.8%" },
-    { id: 3, name: "มหาวิทยาลัยเกษตรศาสตร์", students: 689, placements: 467, rate: "67.8%" },
+    { id: 1, name: "Chulalongkorn University", students: 856, placements: 623, rate: "72.8%" },
+    { id: 2, name: "Thammasat University", students: 742, placements: 518, rate: "69.8%" },
+    { id: 3, name: "Kasetsart University", students: 689, placements: 467, rate: "67.8%" },
   ];
 
   const getPriorityBadge = (priority: string) => {
     switch (priority) {
       case "high":
-        return <Badge variant="destructive">เร่งด่วน</Badge>;
+        return <Badge variant="destructive">Urgent</Badge>;
       case "medium":
-        return <Badge variant="outline" className="text-yellow-600">ปานกลาง</Badge>;
+        return <Badge variant="outline" className="text-yellow-600">Medium</Badge>;
       case "low":
-        return <Badge variant="outline">ต่ำ</Badge>;
+        return <Badge variant="outline">Low</Badge>;
       default:
         return null;
     }
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Admin Dashboard 👨‍💼</h1>
-          <p className="text-muted-foreground">ระบบจัดการแพลตฟอร์มและดูข้อมูลรายละเอียดทั้งหมด</p>
+          <p className="text-muted-foreground">Platform management system and view all detailed data</p>
         </div>
 
         {/* Overall Stats */}
@@ -98,9 +98,9 @@ const AdminDashboard = () => {
                 <div>
                   <CardTitle className="flex items-center gap-2">
                     <AlertCircle className="h-5 w-5 text-warning" />
-                    รอดำเนินการ
+                    Pending Actions
                   </CardTitle>
-                  <CardDescription>รายการที่ต้องตรวจสอบและอนุมัติ</CardDescription>
+                  <CardDescription>Items to review and approve</CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -115,8 +115,8 @@ const AdminDashboard = () => {
                     {getPriorityBadge(action.priority)}
                   </div>
                   <div className="flex gap-2 mt-3">
-                    <Button size="sm" variant="outline">ดูรายละเอียด</Button>
-                    <Button size="sm">ดำเนินการ</Button>
+                    <Button size="sm" variant="outline">View Details</Button>
+                    <Button size="sm">Take Action</Button>
                   </div>
                 </div>
               ))}
@@ -125,8 +125,8 @@ const AdminDashboard = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>กิจกรรมล่าสุด</CardTitle>
-              <CardDescription>ความเคลื่อนไหวในระบบ</CardDescription>
+              <CardTitle>Recent Activities</CardTitle>
+              <CardDescription>System activities</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {recentActivities.map((activity) => (
@@ -147,15 +147,15 @@ const AdminDashboard = () => {
         {/* Top Performers Tabs */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>รายการยอดนิยม</CardTitle>
-            <CardDescription>ข้อมูลสถิติของผู้ใช้งานที่โดดเด่น</CardDescription>
+            <CardTitle>Popular Lists</CardTitle>
+            <CardDescription>Statistics of outstanding users</CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="students" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="students">นักศึกษา</TabsTrigger>
-                <TabsTrigger value="companies">บริษัท</TabsTrigger>
-                <TabsTrigger value="universities">มหาวิทยาลัย</TabsTrigger>
+                <TabsTrigger value="students">Students</TabsTrigger>
+                <TabsTrigger value="companies">Companies</TabsTrigger>
+                <TabsTrigger value="universities">Universities</TabsTrigger>
               </TabsList>
               
               <TabsContent value="students" className="space-y-4 mt-4">
@@ -168,7 +168,7 @@ const AdminDashboard = () => {
                       <div>
                         <h4 className="font-semibold">{student.name}</h4>
                         <p className="text-sm text-muted-foreground">{student.university}</p>
-                        <p className="text-xs text-muted-foreground">สมัคร {student.applications} ครั้ง • ได้งาน {student.hires} ครั้ง</p>
+                        <p className="text-xs text-muted-foreground">Applied {student.applications} times • Hired {student.hires} times</p>
                       </div>
                     </div>
                     <div className="text-right">
@@ -179,7 +179,7 @@ const AdminDashboard = () => {
                   </div>
                 ))}
                 <Button variant="outline" className="w-full" onClick={() => navigate('/admin/students')}>
-                  ดูนักศึกษาทั้งหมด
+                  View All Students
                 </Button>
               </TabsContent>
 
@@ -192,7 +192,7 @@ const AdminDashboard = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold">{company.name}</h4>
-                        <p className="text-sm text-muted-foreground">ประกาศงาน {company.jobs} ตำแหน่ง • จ้างงาน {company.hires} คน</p>
+                        <p className="text-sm text-muted-foreground">Posted {company.jobs} positions • Hired {company.hires} people</p>
                       </div>
                     </div>
                     <div className="text-right">
@@ -203,7 +203,7 @@ const AdminDashboard = () => {
                   </div>
                 ))}
                 <Button variant="outline" className="w-full" onClick={() => navigate('/admin/companies')}>
-                  ดูบริษัททั้งหมด
+                  View All Companies
                 </Button>
               </TabsContent>
 
@@ -216,19 +216,19 @@ const AdminDashboard = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold">{university.name}</h4>
-                        <p className="text-sm text-muted-foreground">นักศึกษา {university.students} คน • จับคู่สำเร็จ {university.placements} คน</p>
+                        <p className="text-sm text-muted-foreground">{university.students} students • {university.placements} successful placements</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <div className="text-green-600 font-semibold">
                         {university.rate}
                       </div>
-                      <p className="text-xs text-muted-foreground">อัตราความสำเร็จ</p>
+                      <p className="text-xs text-muted-foreground">Success Rate</p>
                     </div>
                   </div>
                 ))}
                 <Button variant="outline" className="w-full" onClick={() => navigate('/admin/universities')}>
-                  ดูมหาวิทยาลัยทั้งหมด
+                  View All Universities
                 </Button>
               </TabsContent>
             </Tabs>
@@ -238,25 +238,25 @@ const AdminDashboard = () => {
         {/* Quick Actions */}
         <Card>
           <CardHeader>
-            <CardTitle>การดำเนินการด่วน</CardTitle>
+            <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/admin/students')}>
                 <Users className="h-6 w-6" />
-                <span>จัดการนักศึกษา</span>
+                <span>Manage Students</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/admin/companies')}>
                 <Building2 className="h-6 w-6" />
-                <span>จัดการบริษัท</span>
+                <span>Manage Companies</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/admin/universities')}>
                 <GraduationCap className="h-6 w-6" />
-                <span>จัดการมหาวิทยาลัย</span>
+                <span>Manage Universities</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/admin/reports')}>
                 <TrendingUp className="h-6 w-6" />
-                <span>ดูรายงาน</span>
+                <span>View Reports</span>
               </Button>
             </div>
           </CardContent>

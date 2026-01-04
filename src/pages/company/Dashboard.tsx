@@ -9,32 +9,32 @@ const CompanyDashboard = () => {
   const navigate = useNavigate();
 
   const activeJobs = [
-    { id: 1, position: "Full-Stack Developer Intern", applicants: 45, views: 234, posted: "2 วันที่แล้ว", status: "active" },
-    { id: 2, position: "Data Analyst Intern", applicants: 32, views: 189, posted: "5 วันที่แล้ว", status: "active" },
-    { id: 3, position: "Marketing Intern", applicants: 28, views: 156, posted: "1 สัปดาห์ที่แล้ว", status: "active" },
+    { id: 1, position: "Full-Stack Developer Intern", applicants: 45, views: 234, posted: "2 days ago", status: "active" },
+    { id: 2, position: "Data Analyst Intern", applicants: 32, views: 189, posted: "5 days ago", status: "active" },
+    { id: 3, position: "Marketing Intern", applicants: 28, views: 156, posted: "1 week ago", status: "active" },
   ];
 
   const recentApplicants = [
-    { id: 1, name: "สมชาย ใจดี", position: "Full-Stack Developer Intern", university: "จุฬาลงกรณ์มหาวิทยาลัย", skills: ["React", "Node.js"], status: "new" },
-    { id: 2, name: "สมหญิง รักเรียน", position: "Data Analyst Intern", university: "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี", skills: ["Python", "SQL"], status: "reviewed" },
-    { id: 3, name: "วิทยา สร้างสรรค์", position: "Marketing Intern", university: "มหาวิทยาลัยธรรมศาสตร์", skills: ["SEO", "Social Media"], status: "shortlisted" },
+    { id: 1, name: "Somchai Jaidee", position: "Full-Stack Developer Intern", university: "Chulalongkorn University", skills: ["React", "Node.js"], status: "new" },
+    { id: 2, name: "Somying Rakrian", position: "Data Analyst Intern", university: "King Mongkut's University of Technology Thonburi", skills: ["Python", "SQL"], status: "reviewed" },
+    { id: 3, name: "Wittaya Sangsarn", position: "Marketing Intern", university: "Thammasat University", skills: ["SEO", "Social Media"], status: "shortlisted" },
   ];
 
   const stats = [
-    { label: "ตำแหน่งที่เปิดรับ", value: "3", icon: Briefcase, color: "text-primary" },
-    { label: "ผู้สมัครทั้งหมด", value: "105", icon: Users, color: "text-success" },
-    { label: "รอการพิจารณา", value: "12", icon: Eye, color: "text-warning" },
-    { label: "ข้อความใหม่", value: "5", icon: MessageSquare, color: "text-accent" },
+    { label: "Open Positions", value: "3", icon: Briefcase, color: "text-primary" },
+    { label: "Total Applicants", value: "105", icon: Users, color: "text-success" },
+    { label: "Pending Review", value: "12", icon: Eye, color: "text-warning" },
+    { label: "New Messages", value: "5", icon: MessageSquare, color: "text-accent" },
   ];
 
   const getStatusInfo = (status: string) => {
     switch (status) {
       case "new":
-        return { label: "ใหม่", color: "bg-blue-500/10 text-blue-700 dark:text-blue-400" };
+        return { label: "New", color: "bg-blue-500/10 text-blue-700 dark:text-blue-400" };
       case "reviewed":
-        return { label: "ตรวจสอบแล้ว", color: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400" };
+        return { label: "Reviewed", color: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400" };
       case "shortlisted":
-        return { label: "คัดเลือกแล้ว", color: "bg-green-500/10 text-green-700 dark:text-green-400" };
+        return { label: "Shortlisted", color: "bg-green-500/10 text-green-700 dark:text-green-400" };
       default:
         return { label: status, color: "bg-muted" };
     }
@@ -46,12 +46,12 @@ const CompanyDashboard = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-2">แดशบอร์ดบริษัท 🏢</h1>
-            <p className="text-muted-foreground">จัดการตำแหน่งงานและผู้สมัคร</p>
+            <h1 className="text-3xl font-bold mb-2">Company Dashboard 🏢</h1>
+            <p className="text-muted-foreground">Manage job positions and applicants</p>
           </div>
           <Button className="shadow-primary" onClick={() => navigate('/company/post-job')}>
             <Plus className="h-4 w-4 mr-2" />
-            ประกาศงานใหม่
+            Post New Job
           </Button>
         </div>
 
@@ -80,11 +80,11 @@ const CompanyDashboard = () => {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle>ตำแหน่งที่เปิดรับ</CardTitle>
-                  <CardDescription>ติดตามประสิทธิภาพของประกาศงาน</CardDescription>
+                  <CardTitle>Open Positions</CardTitle>
+                  <CardDescription>Track job posting performance</CardDescription>
                 </div>
                 <Button variant="ghost" size="sm" onClick={() => navigate('/company/post-job')}>
-                  เพิ่มใหม่
+                  Add New
                 </Button>
               </div>
             </CardHeader>
@@ -93,24 +93,24 @@ const CompanyDashboard = () => {
                 <div key={job.id} className="p-4 rounded-lg border hover:bg-muted/50 transition-colors">
                   <div className="flex items-start justify-between mb-3">
                     <h4 className="font-semibold">{job.position}</h4>
-                    <Badge variant="outline" className="text-green-600">เปิดรับ</Badge>
+                    <Badge variant="outline" className="text-green-600">Open</Badge>
                   </div>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                     <span className="flex items-center gap-1">
                       <Users className="h-4 w-4" />
-                      {job.applicants} ผู้สมัคร
+                      {job.applicants} applicants
                     </span>
                     <span className="flex items-center gap-1">
                       <Eye className="h-4 w-4" />
-                      {job.views} ครั้ง
+                      {job.views} views
                     </span>
                     <span>{job.posted}</span>
                   </div>
                   <div className="flex gap-2">
                     <Button size="sm" variant="outline" onClick={() => navigate('/company/applicants')}>
-                      ดูผู้สมัคร
+                      View Applicants
                     </Button>
-                    <Button size="sm" variant="ghost">แก้ไข</Button>
+                    <Button size="sm" variant="ghost">Edit</Button>
                   </div>
                 </div>
               ))}
@@ -124,12 +124,12 @@ const CompanyDashboard = () => {
                 <div>
                   <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="h-5 w-5 text-primary" />
-                    ผู้สมัครล่าสุด
+                    Recent Applicants
                   </CardTitle>
-                  <CardDescription>ผู้สมัครที่ส่งใบสมัครเข้ามาใหม่</CardDescription>
+                  <CardDescription>New applicants who submitted applications</CardDescription>
                 </div>
                 <Button variant="ghost" size="sm" onClick={() => navigate('/company/applicants')}>
-                  ดูทั้งหมด
+                  View All
                 </Button>
               </div>
             </CardHeader>
@@ -145,13 +145,13 @@ const CompanyDashboard = () => {
                       </div>
                       <Badge className={statusInfo.color}>{statusInfo.label}</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-2">สมัคร: {applicant.position}</p>
+                    <p className="text-sm text-muted-foreground mb-2">Applied for: {applicant.position}</p>
                     <div className="flex flex-wrap gap-1 mb-3">
                       {applicant.skills.map((skill, idx) => (
                         <Badge key={idx} variant="secondary" className="text-xs">{skill}</Badge>
                       ))}
                     </div>
-                    <Button size="sm">ดูโปรไฟล์</Button>
+                    <Button size="sm">View Profile</Button>
                   </div>
                 );
               })}
@@ -162,21 +162,21 @@ const CompanyDashboard = () => {
         {/* Quick Actions */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>การดำเนินการด่วน</CardTitle>
+            <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/company/applicants')}>
                 <Users className="h-6 w-6" />
-                <span>จัดการผู้สมัคร</span>
+                <span>Manage Applicants</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/company/search')}>
                 <Eye className="h-6 w-6" />
-                <span>ค้นหาผู้สมัคร</span>
+                <span>Search Applicants</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/company/messages')}>
                 <MessageSquare className="h-6 w-6" />
-                <span>ข้อความ</span>
+                <span>Messages</span>
               </Button>
             </div>
           </CardContent>

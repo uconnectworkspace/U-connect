@@ -4,33 +4,33 @@ const Features = () => {
   const features = [
     {
       icon: Sparkles,
-      title: "จับคู่อัจฉริยะ", //dee
-      description: "ระบบ AI ช่วยจับคู่นักศึกษากับบริษัทที่เหมาะสมที่สุด"
+      title: "Smart Matching",
+      description: "AI system helps match students with the most suitable companies"
     },
     {
       icon: Shield,
-      title: "ปลอดภัย 100%",
-      description: "ข้อมูลทุกอย่างได้รับการตรวจสอบและรักษาความปลอดภัย"
+      title: "100% Secure",
+      description: "All data is verified and kept secure"
     },
     {
       icon: Zap,
-      title: "รวดเร็ว",
-      description: "สมัครงานและจัดการใบสมัครได้อย่างรวดเร็วและง่ายดาย"
+      title: "Fast",
+      description: "Apply for jobs and manage applications quickly and easily"
     },
     {
       icon: Users,
-      title: "เครือข่ายกว้าง",
-      description: "เชื่อมต่อกับบริษัทและนักศึกษาจากทั่วประเทศ"
+      title: "Wide Network",
+      description: "Connect with companies and students from across the country"
     },
     {
       icon: LineChart,
-      title: "วิเคราะห์ข้อมูล",
-      description: "รายงานและสถิติแบบ real-time สำหรับมหาวิทยาลัย"
+      title: "Data Analytics",
+      description: "Real-time reports and statistics for universities"
     },
     {
       icon: MessageSquare,
-      title: "สื่อสารได้ง่าย",
-      description: "แชทและประสานงานได้โดยตรงในระบบเดียว"
+      title: "Easy Communication",
+      description: "Chat and coordinate directly within the same system"
     }
   ];
 
@@ -39,10 +39,10 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold">
-            ทำไมต้องเลือกเรา?
+            Why Choose Us?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            เครื่องมือครบครัน เพื่อประสบการณ์ที่ดีที่สุด
+            Complete tools for the best experience
           </p>
         </div>
 

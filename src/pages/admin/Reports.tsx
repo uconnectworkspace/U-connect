@@ -9,17 +9,17 @@ const AdminReports = () => {
   const navigate = useNavigate();
 
   const platformStats = [
-    { month: "มกราคม", students: 245, companies: 32, universities: 4, placements: 178 },
-    { month: "กุมภาพันธ์", students: 298, companies: 38, universities: 5, placements: 215 },
-    { month: "มีนาคม", students: 356, companies: 42, universities: 6, placements: 267 },
-    { month: "เมษายน", students: 412, companies: 48, universities: 6, placements: 312 },
+    { month: "January", students: 245, companies: 32, universities: 4, placements: 178 },
+    { month: "February", students: 298, companies: 38, universities: 5, placements: 215 },
+    { month: "March", students: 356, companies: 42, universities: 6, placements: 267 },
+    { month: "April", students: 412, companies: 48, universities: 6, placements: 312 },
   ];
 
   const universityPerformance = [
-    { name: "จุฬาลงกรณ์มหาวิทยาลัย", students: 856, placements: 623, companies: 45, rate: 72.8 },
-    { name: "มหาวิทยาลัยธรรมศาสตร์", students: 742, placements: 518, companies: 38, rate: 69.8 },
-    { name: "มหาวิทยาลัยเกษตรศาสตร์", students: 689, placements: 467, companies: 34, rate: 67.8 },
-    { name: "มหาวิทยาลัยมหิดล", students: 534, placements: 389, companies: 28, rate: 72.8 },
+    { name: "Chulalongkorn University", students: 856, placements: 623, companies: 45, rate: 72.8 },
+    { name: "Thammasat University", students: 742, placements: 518, companies: 38, rate: 69.8 },
+    { name: "Kasetsart University", students: 689, placements: 467, companies: 34, rate: 67.8 },
+    { name: "Mahidol University", students: 534, placements: 389, companies: 28, rate: 72.8 },
   ];
 
   return (
@@ -28,23 +28,23 @@ const AdminReports = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Button variant="ghost" onClick={() => navigate('/admin/dashboard')} className="mb-4">
-            ← กลับไปแดชบอร์ด
+            ← Back to Dashboard
           </Button>
-          <h1 className="text-3xl font-bold mb-2">รายงานระบบแพลตฟอร์ม 📊</h1>
-          <p className="text-muted-foreground">ภาพรวมและสถิติการใช้งานทั้งระบบ</p>
+          <h1 className="text-3xl font-bold mb-2">Platform Reports 📊</h1>
+          <p className="text-muted-foreground">System-wide overview and usage statistics</p>
         </div>
 
         {/* Filter */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>กรองข้อมูล</CardTitle>
+            <CardTitle>Filter Data</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <Select defaultValue="2024">
                 <SelectTrigger>
                   <Calendar className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="เลือกปี" />
+                  <SelectValue placeholder="Select Year" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="2024">2024</SelectItem>
@@ -54,29 +54,29 @@ const AdminReports = () => {
               </Select>
               <Select defaultValue="all">
                 <SelectTrigger>
-                  <SelectValue placeholder="เลือกมหาวิทยาลัย" />
+                  <SelectValue placeholder="Select University" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">ทุกมหาวิทยาลัย</SelectItem>
-                  <SelectItem value="chula">จุฬาลงกรณ์มหาวิทยาลัย</SelectItem>
-                  <SelectItem value="tu">มหาวิทยาลัยธรรมศาสตร์</SelectItem>
-                  <SelectItem value="ku">มหาวิทยาลัยเกษตรศาสตร์</SelectItem>
+                  <SelectItem value="all">All Universities</SelectItem>
+                  <SelectItem value="chula">Chulalongkorn University</SelectItem>
+                  <SelectItem value="tu">Thammasat University</SelectItem>
+                  <SelectItem value="ku">Kasetsart University</SelectItem>
                 </SelectContent>
               </Select>
               <Select defaultValue="all">
                 <SelectTrigger>
-                  <SelectValue placeholder="เลือกประเภทรายงาน" />
+                  <SelectValue placeholder="Select Report Type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">ทั้งหมด</SelectItem>
-                  <SelectItem value="students">นักศึกษา</SelectItem>
-                  <SelectItem value="companies">บริษัท</SelectItem>
-                  <SelectItem value="placements">การจับคู่</SelectItem>
+                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem value="students">Students</SelectItem>
+                  <SelectItem value="companies">Companies</SelectItem>
+                  <SelectItem value="placements">Placements</SelectItem>
                 </SelectContent>
               </Select>
               <Button>
                 <Download className="h-4 w-4 mr-2" />
-                ดาวน์โหลดรายงาน
+                Download Report
               </Button>
             </div>
           </CardContent>
@@ -92,7 +92,7 @@ const AdminReports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">2,847</p>
-                  <p className="text-sm text-muted-foreground">นักศึกษา</p>
+                  <p className="text-sm text-muted-foreground">Students</p>
                 </div>
               </div>
             </CardContent>
@@ -105,7 +105,7 @@ const AdminReports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">156</p>
-                  <p className="text-sm text-muted-foreground">บริษัท</p>
+                  <p className="text-sm text-muted-foreground">Companies</p>
                 </div>
               </div>
             </CardContent>
@@ -118,7 +118,7 @@ const AdminReports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">24</p>
-                  <p className="text-sm text-muted-foreground">มหาวิทยาลัย</p>
+                  <p className="text-sm text-muted-foreground">Universities</p>
                 </div>
               </div>
             </CardContent>
@@ -131,7 +131,7 @@ const AdminReports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">1,423</p>
-                  <p className="text-sm text-muted-foreground">จับคู่สำเร็จ</p>
+                  <p className="text-sm text-muted-foreground">Successful Placements</p>
                 </div>
               </div>
             </CardContent>
@@ -144,7 +144,7 @@ const AdminReports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">72.1%</p>
-                  <p className="text-sm text-muted-foreground">อัตราสำเร็จ</p>
+                  <p className="text-sm text-muted-foreground">Success Rate</p>
                 </div>
               </div>
             </CardContent>
@@ -154,8 +154,8 @@ const AdminReports = () => {
         {/* Monthly Growth Trends */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>การเติบโตของแพลตฟอร์ม</CardTitle>
-            <CardDescription>สถิติรายเดือนของการใช้งานระบบ</CardDescription>
+            <CardTitle>Platform Growth</CardTitle>
+            <CardDescription>Monthly system usage statistics</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -164,19 +164,19 @@ const AdminReports = () => {
                   <h4 className="font-semibold mb-3">{stat.month} 2024</h4>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1">นักศึกษาใหม่</p>
+                      <p className="text-xs text-muted-foreground mb-1">New Students</p>
                       <p className="text-2xl font-bold text-primary">{stat.students}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1">บริษัทใหม่</p>
+                      <p className="text-xs text-muted-foreground mb-1">New Companies</p>
                       <p className="text-2xl font-bold text-success">{stat.companies}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1">มหาวิทยาลัยใหม่</p>
+                      <p className="text-xs text-muted-foreground mb-1">New Universities</p>
                       <p className="text-2xl font-bold text-accent">{stat.universities}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1">การจับคู่สำเร็จ</p>
+                      <p className="text-xs text-muted-foreground mb-1">Successful Placements</p>
                       <p className="text-2xl font-bold text-warning">{stat.placements}</p>
                     </div>
                   </div>
@@ -189,8 +189,8 @@ const AdminReports = () => {
         {/* University Performance Comparison */}
         <Card>
           <CardHeader>
-            <CardTitle>เปรียบเทียบประสิทธิภาพมหาวิทยาลัย</CardTitle>
-            <CardDescription>อันดับและสถิติของมหาวิทยาลัยพาร์ทเนอร์</CardDescription>
+            <CardTitle>University Performance Comparison</CardTitle>
+            <CardDescription>Rankings and statistics of partner universities</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -204,15 +204,15 @@ const AdminReports = () => {
                       <div className="flex-1">
                         <h4 className="font-semibold">{uni.name}</h4>
                         <div className="grid grid-cols-3 gap-4 mt-1 text-sm text-muted-foreground">
-                          <span>{uni.students} นักศึกษา</span>
-                          <span>{uni.companies} บริษัท</span>
-                          <span>{uni.placements} การจับคู่</span>
+                          <span>{uni.students} students</span>
+                          <span>{uni.companies} companies</span>
+                          <span>{uni.placements} placements</span>
                         </div>
                       </div>
                     </div>
                     <div className="text-right ml-4">
                       <p className="text-2xl font-bold text-green-600">{uni.rate}%</p>
-                      <p className="text-xs text-muted-foreground">อัตราสำเร็จ</p>
+                      <p className="text-xs text-muted-foreground">Success Rate</p>
                     </div>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">

@@ -22,34 +22,34 @@ const Navbar = () => {
   const getNavLinks = () => {
     if (isStudent) {
       return [
-        { label: 'แดชบอร์ด', path: '/student/dashboard' },
-        { label: 'ค้นหางาน', path: '/student/jobs' },
-        { label: 'การสมัครของฉัน', path: '/student/applications' },
+        { label: 'Dashboard', path: '/student/dashboard' },
+        { label: 'Find Jobs', path: '/student/jobs' },
+        { label: 'My Applications', path: '/student/applications' },
       ];
     }
     if (isCompany) {
       return [
-        { label: 'แดชบอร์ด', path: '/company/dashboard' },
-        { label: 'ประกาศงาน', path: '/company/post-job' },
-        { label: 'จัดการผู้สมัคร', path: '/company/applicants' },
-        { label: 'ข้อความ', path: '/company/messages' },
+        { label: 'Dashboard', path: '/company/dashboard' },
+        { label: 'Post Job', path: '/company/post-job' },
+        { label: 'Manage Applicants', path: '/company/applicants' },
+        { label: 'Messages', path: '/company/messages' },
       ];
     }
     if (isUniversity) {
       return [
-        { label: 'แดชบอร์ด', path: '/university/dashboard' },
-        { label: 'อนุมัติบริษัท', path: '/university/approvals' },
-        { label: 'รายงาน', path: '/university/reports' },
-        { label: 'ประกาศ', path: '/university/announcements' },
+        { label: 'Dashboard', path: '/university/dashboard' },
+        { label: 'Approve Companies', path: '/university/approvals' },
+        { label: 'Reports', path: '/university/reports' },
+        { label: 'Announcements', path: '/university/announcements' },
       ];
     }
     if (isAdmin) {
       return [
-        { label: 'แดชบอร์ด', path: '/admin/dashboard' },
-        { label: 'นักศึกษา', path: '/admin/students' },
-        { label: 'บริษัท', path: '/admin/companies' },
-        { label: 'มหาวิทยาลัย', path: '/admin/universities' },
-        { label: 'รายงาน', path: '/admin/reports' },
+        { label: 'Dashboard', path: '/admin/dashboard' },
+        { label: 'Students', path: '/admin/students' },
+        { label: 'Companies', path: '/admin/companies' },
+        { label: 'Universities', path: '/admin/universities' },
+        { label: 'Reports', path: '/admin/reports' },
       ];
     }
     return [];
@@ -104,16 +104,16 @@ const Navbar = () => {
             {!isStudent && !isCompany && !isUniversity && !isAdmin && (
               <>
                 <Button variant="ghost" onClick={() => navigate("/auth")}>
-                  เข้าสู่ระบบ
+                  Sign In
                 </Button>
                 <Button onClick={() => navigate("/auth")}>
-                  ลงทะเบียน
+                  Sign Up
                 </Button>
               </>
             )}
             {(isStudent || isCompany || isUniversity || isAdmin) && (
               <Button variant="outline" onClick={() => navigate("/")}>
-                ออกจากระบบ
+                Sign Out
               </Button>
             )}
           </div>
@@ -121,7 +121,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-2">
             {isCompany && (
               <Link to="/company/messages" className="text-sm hover:underline">
-                ติดต่อมหาวิทยาลัย
+                Contact University
               </Link>
             )}
           </div>

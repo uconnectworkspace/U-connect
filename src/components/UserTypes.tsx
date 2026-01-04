@@ -5,39 +5,39 @@ const UserTypes = () => {
   const userTypes = [
     {
       icon: GraduationCap,
-      title: "นักศึกษา",
-      description: "ค้นหาโอกาสฝึกงานและพัฒนาทักษะ",
+      title: "Students",
+      description: "Find internship opportunities and develop skills",
       features: [
-        "สร้างโปรไฟล์และพอร์ตโฟลิโอ",
-        "ค้นหางานที่เหมาะกับคุณ",
-        "สมัครงานได้ง่ายๆ ในคลิกเดียว",
-        "ติดตามสถานะการสมัคร"
+        "Create profile and portfolio",
+        "Find jobs that suit you",
+        "Apply for jobs easily with one click",
+        "Track application status"
       ],
       path: "/auth?role=student",
       gradient: "gradient-primary"
     },
     {
       icon: Building2,
-      title: "บริษัท",
-      description: "หาคนเก่งเข้าร่วมทีมของคุณ",
+      title: "Companies",
+      description: "Find talented people to join your team",
       features: [
-        "ประกาศตำแหน่งงานฟรี",
-        "ค้นหาผู้สมัครที่ตรงใจ",
-        "จัดการใบสมัครอย่างมีประสิทธิภาพ",
-        "เข้าถึงนักศึกษาคุณภาพสูง"
+        "Post job openings for free",
+        "Find candidates that match",
+        "Manage applications efficiently",
+        "Access high-quality students"
       ],
       path: "/auth?role=company",
       gradient: "gradient-accent"
     },
     {
       icon: School,
-      title: "มหาวิทยาลัย",
-      description: "จัดการและติดตามข้อมูล",
+      title: "Universities",
+      description: "Manage and track data",
       features: [
-        "อนุมัติและตรวจสอบบริษัท",
-        "ติดตามข้อมูลการจ้างงาน",
-        "ดูรายงานและสถิติ",
-        "สื่อสารกับนักศึกษาและบริษัท"
+        "Approve and verify companies",
+        "Track employment data",
+        "View reports and statistics",
+        "Communicate with students and companies"
       ],
       path: "/auth?role=university",
       gradient: "gradient-primary"
@@ -49,10 +49,10 @@ const UserTypes = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold">
-            เลือกประเภทผู้ใช้งานของคุณ
+            Choose Your User Type
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            แพลตฟอร์มที่ออกแบบมาเพื่อตอบโจทย์ทุกฝ่าย
+            A platform designed to meet everyone's needs
           </p>
         </div>
 

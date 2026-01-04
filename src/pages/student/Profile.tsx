@@ -16,17 +16,17 @@ import { CheckCircle } from "lucide-react";
 type Course = { name: string; description: string; grade?: string };
 
 const mockProfile = {
-  name: "นางสาว สมหญิง ใจดี",
+  name: "Ms. Somying Jaidee",
   email: "student@gmail.com",
-  university: "มหาวิทยาลัยตัวอย่าง",
-  major: "วิทยาการคอมพิวเตอร์",
-  year: "ปี 3",
+  university: "Example University",
+  major: "Computer Science",
+  year: "Year 3",
   gpa: "3.50",
-  expectedGraduation: "มิ.ย. 2026",
+  expectedGraduation: "Jun 2026",
   courses: [
-    { name: "Data Structures", description: "พื้นฐานโครงสร้างข้อมูล เช่น lists, trees และ graphs", grade: "A" },
-    { name: "Algorithms", description: "อัลกอริธึมการค้นหาและการเรียงลำดับ, complexity", grade: "A-" },
-    { name: "Database Systems", description: "ออกแบบฐานข้อมูลและการใช้งาน SQL", grade: "B+" },
+    { name: "Data Structures", description: "Fundamentals of data structures such as lists, trees and graphs", grade: "A" },
+    { name: "Algorithms", description: "Search and sorting algorithms, complexity", grade: "A-" },
+    { name: "Database Systems", description: "Database design and SQL usage", grade: "B+" },
   ] as Course[],
   skills: ["React", "TypeScript", "Tailwind", "SQL"],
   stats: {
@@ -89,7 +89,7 @@ const Profile = () => {
     if (!file) return;
     const allowed = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
     if (!allowed.includes(file.type)) {
-      toast.error("รองรับไฟล์ .pdf, .doc, .docx เท่านั้น");
+      toast.error("Only .pdf, .doc, .docx files are supported");
       return;
     }
     const reader = new FileReader();
@@ -104,7 +104,7 @@ const Profile = () => {
         cur.cv = newCv;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(cur));
       } catch {}
-      toast.success("อัปโหลด CV เรียบร้อย");
+      toast.success("CV uploaded successfully");
     };
     reader.readAsDataURL(file);
   };
@@ -117,7 +117,7 @@ const Profile = () => {
       delete cur.cv;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(cur));
     } catch {}
-    toast.success("ลบ CV แล้ว");
+    toast.success("CV deleted");
   };
 
   return (
@@ -147,7 +147,7 @@ const Profile = () => {
                     {/** show badge */ savedProfile?.verified ? (
                       <Badge className="flex items-center gap-1 bg-green-100 text-green-700">
                         <CheckCircle className="h-4 w-4" />
-                        ยืนยันโดยมหาวิทยาลัย
+                        Verified by University
                       </Badge>
                     ) : null}
                   </div>
@@ -163,7 +163,7 @@ const Profile = () => {
                       setIsEditing(true);
                     }}
                   >
-                    แก้ไขโปรไฟล์
+                    Edit Profile
                   </Button>
                 </div>
               </CardContent>
@@ -171,22 +171,22 @@ const Profile = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle>สถิติการสมัคร</CardTitle>
-                <CardDescription>ภาพรวมการหางานของคุณ</CardDescription>
+                <CardTitle>Application Stats</CardTitle>
+                <CardDescription>Overview of your job search</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold text-primary">{mockProfile.stats.applications}</div>
-                    <div className="text-sm text-muted-foreground">สมัครงาน</div>
+                    <div className="text-sm text-muted-foreground">Applied</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-primary">{mockProfile.stats.interviews}</div>
-                    <div className="text-sm text-muted-foreground">สัมภาษณ์</div>
+                    <div className="text-sm text-muted-foreground">Interviews</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-primary">{mockProfile.stats.offers}</div>
-                    <div className="text-sm text-muted-foreground">ข้อเสนอ</div>
+                    <div className="text-sm text-muted-foreground">Offers</div>
                   </div>
                 </div>
               </CardContent>
@@ -197,8 +197,8 @@ const Profile = () => {
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle>ข้อมูลส่วนตัว</CardTitle>
-                <CardDescription>รายละเอียดโปรไฟล์นักศึกษา (mock)</CardDescription>
+                <CardTitle>Personal Information</CardTitle>
+                <CardDescription>Student profile details (mock)</CardDescription>
               </CardHeader>
 
               <CardContent className="space-y-6">
@@ -210,19 +210,19 @@ const Profile = () => {
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="name">ชื่อ-นามสกุล</Label>
+                      <Label htmlFor="name">Full Name</Label>
                       <Input id="name" value={name} onChange={(e) => setName(e.target.value)} readOnly={!isEditing} />
                     </div>
                     <div>
-                      <Label htmlFor="email">อีเมล</Label>
+                      <Label htmlFor="email">Email</Label>
                       <Input id="email" value={email} onChange={(e) => setEmail(e.target.value)} readOnly={!isEditing} />
                     </div>
                     <div>
-                      <Label htmlFor="university">มหาวิทยาลัย</Label>
+                      <Label htmlFor="university">University</Label>
                       <Input id="university" value={university} onChange={(e) => setUniversity(e.target.value)} readOnly={!isEditing} />
                     </div>
                     <div>
-                      <Label htmlFor="major">สาขา</Label>
+                      <Label htmlFor="major">Major</Label>
                       <Input id="major" value={major} onChange={(e) => setMajor(e.target.value)} readOnly={!isEditing} />
                     </div>
                     <div>
@@ -230,7 +230,7 @@ const Profile = () => {
                       <Input id="gpa" value={gpa} onChange={(e) => setGpa(e.target.value)} readOnly={!isEditing} />
                     </div>
                     <div>
-                      <Label htmlFor="expected">คาดว่าจะจบ</Label>
+                      <Label htmlFor="expected">Expected Graduation</Label>
                       <Input id="expected" value={expectedGraduation} onChange={(e) => setExpectedGraduation(e.target.value)} readOnly={!isEditing} />
                     </div>
                   </div>
@@ -250,10 +250,10 @@ const Profile = () => {
                                 return updated as any;
                               });
                               setIsEditing(false);
-                              toast.success("บันทึกโปรไฟล์เรียบร้อย");
+                              toast.success("Profile saved successfully");
                             }}
                           >
-                            บันทึก
+                            Save
                           </Button>
                           <Button
                             variant="outline"
@@ -272,17 +272,17 @@ const Profile = () => {
                               setIsEditing(false);
                             }}
                           >
-                            ยกเลิก
+                            Cancel
                           </Button>
                         </>
                       ) : (
-                        <div className="text-sm text-muted-foreground">คลิก "แก้ไขโปรไฟล์" เพื่อแก้ไขข้อมูล</div>
+                        <div className="text-sm text-muted-foreground">Click "Edit Profile" to modify information</div>
                       )}
                     </div>
                 </form>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">ทักษะ</h3>
+                  <h3 className="text-lg font-semibold mb-2">Skills</h3>
                   <div className="flex flex-wrap gap-2">
                     {mockProfile.skills.map((s) => (
                       <div key={s} className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
@@ -293,16 +293,16 @@ const Profile = () => {
                 </div>
 
                 <div className="mt-6">
-                  <h3 className="text-lg font-semibold mb-2">รายละเอียดรายวิชา</h3>
+                  <h3 className="text-lg font-semibold mb-2">Course Details</h3>
                   <div className="space-y-3">
                     {courses.length === 0 ? (
-                      <div className="text-sm text-muted-foreground">ไม่มีข้อมูลรายวิชา</div>
+                      <div className="text-sm text-muted-foreground">No course information</div>
                     ) : (
                       courses.map((c, idx) => (
                         <div key={idx} className="p-3 border rounded-md">
                           <div className="flex items-baseline justify-between">
                             <div className="font-medium text-base">{c.name}</div>
-                            <div className="text-sm text-muted-foreground">เกรด: <span className="font-semibold text-primary">{c.grade ?? '-'}</span></div>
+                            <div className="text-sm text-muted-foreground">Grade: <span className="font-semibold text-primary">{c.grade ?? '-'}</span></div>
                           </div>
                           <div className="text-sm text-muted-foreground mt-1">{c.description}</div>
                         </div>
@@ -312,7 +312,7 @@ const Profile = () => {
                 </div>
 
                 <div className="mt-6">
-                  <h3 className="text-lg font-semibold mb-2">อัปโหลด CV / Resume</h3>
+                  <h3 className="text-lg font-semibold mb-2">Upload CV / Resume</h3>
                   <div className="flex items-center gap-4">
                     <input
                       id="cv"
@@ -328,12 +328,12 @@ const Profile = () => {
                     {cv ? (
                       <div className="flex items-center gap-2">
                         <a href={cv.dataUrl} target="_blank" rel="noreferrer" className="text-primary underline">
-                          เปิด / ดาวน์โหลด ({cv.name})
+                          Open / Download ({cv.name})
                         </a>
-                        <Button variant="outline" size="sm" onClick={handleRemoveCv}>ลบ</Button>
+                        <Button variant="outline" size="sm" onClick={handleRemoveCv}>Delete</Button>
                       </div>
                     ) : (
-                      <div className="text-sm text-muted-foreground">ยังไม่มีไฟล์ CV</div>
+                      <div className="text-sm text-muted-foreground">No CV file uploaded</div>
                     )}
                   </div>
                 </div>

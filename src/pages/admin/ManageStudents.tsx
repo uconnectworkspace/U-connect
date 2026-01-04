@@ -15,21 +15,21 @@ const ManageStudents = () => {
   const [filterStatus, setFilterStatus] = useState("all");
 
   const students = [
-    { id: 1, name: "สมชาย ใจดี", email: "somchai@student.ac.th", university: "จุฬาลงกรณ์มหาวิทยาลัย", major: "วิศวกรรมคอมพิวเตอร์", applications: 23, status: "active" },
-    { id: 2, name: "สมหญิง ขยัน", email: "somying@student.ac.th", university: "มหาวิทยาลัยธรรมศาสตร์", major: "บริหารธุรกิจ", applications: 19, status: "active" },
-    { id: 3, name: "ทดสอบ เทส", email: "test@student.ac.th", university: "มหาวิทยาลัยเกษตรศาสตร์", major: "วิศวกรรมไฟฟ้า", applications: 18, status: "active" },
-    { id: 4, name: "แบน นักศึกษา", email: "banned@student.ac.th", university: "มหาวิทยาลัยมหิดล", major: "แพทยศาสตร์", applications: 5, status: "banned" },
-    { id: 5, name: "รอดู ตัวอย่าง", email: "pending@student.ac.th", university: "มหาวิทยาลัยเชียงใหม่", major: "วิทยาการคอมพิวเตอร์", applications: 12, status: "pending" },
+    { id: 1, name: "Somchai Jaidee", email: "somchai@student.ac.th", university: "Chulalongkorn University", major: "Computer Engineering", applications: 23, status: "active" },
+    { id: 2, name: "Somying Khayan", email: "somying@student.ac.th", university: "Thammasat University", major: "Business Administration", applications: 19, status: "active" },
+    { id: 3, name: "Test Test", email: "test@student.ac.th", university: "Kasetsart University", major: "Electrical Engineering", applications: 18, status: "active" },
+    { id: 4, name: "Banned Student", email: "banned@student.ac.th", university: "Mahidol University", major: "Medicine", applications: 5, status: "banned" },
+    { id: 5, name: "Pending Example", email: "pending@student.ac.th", university: "Chiang Mai University", major: "Computer Science", applications: 12, status: "pending" },
   ];
 
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "active":
-        return <Badge className="bg-green-500">ใช้งานได้</Badge>;
+        return <Badge className="bg-green-500">Active</Badge>;
       case "banned":
-        return <Badge variant="destructive">ถูกระงับ</Badge>;
+        return <Badge variant="destructive">Suspended</Badge>;
       case "pending":
-        return <Badge variant="outline" className="text-yellow-600">รอตรวจสอบ</Badge>;
+        return <Badge variant="outline" className="text-yellow-600">Pending</Badge>;
       default:
         return null;
     }
@@ -49,10 +49,10 @@ const ManageStudents = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Button variant="ghost" onClick={() => navigate('/admin/dashboard')} className="mb-4">
-            ← กลับไปแดชบอร์ด
+            ← Back to Dashboard
           </Button>
-          <h1 className="text-3xl font-bold mb-2">จัดการนักศึกษา 👨‍🎓</h1>
-          <p className="text-muted-foreground">ดูและจัดการข้อมูลนักศึกษาทั้งหมดในระบบ</p>
+          <h1 className="text-3xl font-bold mb-2">Manage Students 👨‍🎓</h1>
+          <p className="text-muted-foreground">View and manage all student data in the system</p>
         </div>
 
         {/* Stats */}
@@ -60,25 +60,25 @@ const ManageStudents = () => {
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1 text-green-600">2,458</p>
-              <p className="text-sm text-muted-foreground">ใช้งานปกติ</p>
+              <p className="text-sm text-muted-foreground">Active</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1 text-yellow-600">89</p>
-              <p className="text-sm text-muted-foreground">รอตรวจสอบ</p>
+              <p className="text-sm text-muted-foreground">Pending Review</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1 text-red-600">23</p>
-              <p className="text-sm text-muted-foreground">ถูกระงับ</p>
+              <p className="text-sm text-muted-foreground">Suspended</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1">2,570</p>
-              <p className="text-sm text-muted-foreground">รวมทั้งหมด</p>
+              <p className="text-sm text-muted-foreground">Total</p>
             </CardContent>
           </Card>
         </div>
@@ -86,14 +86,14 @@ const ManageStudents = () => {
         {/* Search and Filter */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>ค้นหาและกรองข้อมูล</CardTitle>
+            <CardTitle>Search and Filter</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="ค้นหาด้วยชื่อ, อีเมล, หรือมหาวิทยาลัย..."
+                  placeholder="Search by name, email, or university..."
                   className="pl-10"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -102,13 +102,13 @@ const ManageStudents = () => {
               <Select value={filterStatus} onValueChange={setFilterStatus}>
                 <SelectTrigger className="w-full md:w-[200px]">
                   <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="กรองสถานะ" />
+                  <SelectValue placeholder="Filter Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">ทั้งหมด</SelectItem>
-                  <SelectItem value="active">ใช้งานได้</SelectItem>
-                  <SelectItem value="pending">รอตรวจสอบ</SelectItem>
-                  <SelectItem value="banned">ถูกระงับ</SelectItem>
+                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem value="active">Active</SelectItem>
+                  <SelectItem value="pending">Pending</SelectItem>
+                  <SelectItem value="banned">Suspended</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -118,20 +118,20 @@ const ManageStudents = () => {
         {/* Students Table */}
         <Card>
           <CardHeader>
-            <CardTitle>รายชื่อนักศึกษา</CardTitle>
-            <CardDescription>พบ {filteredStudents.length} รายการ</CardDescription>
+            <CardTitle>Student List</CardTitle>
+            <CardDescription>Found {filteredStudents.length} records</CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>ชื่อ-นามสกุล</TableHead>
-                  <TableHead>อีเมล</TableHead>
-                  <TableHead>มหาวิทยาลัย</TableHead>
-                  <TableHead>สาขา</TableHead>
-                  <TableHead>จำนวนสมัครงาน</TableHead>
-                  <TableHead>สถานะ</TableHead>
-                  <TableHead className="text-right">การดำเนินการ</TableHead>
+                  <TableHead>Full Name</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>University</TableHead>
+                  <TableHead>Major</TableHead>
+                  <TableHead>Applications</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

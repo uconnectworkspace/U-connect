@@ -12,46 +12,46 @@ const JobDetails = () => {
 
   const jobData = {
     title: "Full Stack Developer Intern",
-    company: "บริษัท เทคโนโลยี ABC จำกัด",
-    location: "กรุงเทพมหานคร (สามารถ WFH ได้)",
-    type: "ฝึกงาน",
-    salary: "15,000 - 20,000 บาท/เดือน",
-    posted: "2 วันที่แล้ว",
+    company: "ABC Technology Company Ltd.",
+    location: "Bangkok (WFH Available)",
+    type: "Internship",
+    salary: "15,000 - 20,000 Baht/month",
+    posted: "2 days ago",
     applicants: 45,
-    description: "เรากำลังมองหา Full Stack Developer Intern ที่มีความกระตือรือร้นและพร้อมเรียนรู้เทคโนโลยีใหม่ๆ มาร่วมงานกับทีมของเรา คุณจะได้ทำงานกับโปรเจกต์จริงและได้รับประสบการณ์ที่มีค่า",
+    description: "We are looking for an enthusiastic Full Stack Developer Intern who is ready to learn new technologies to join our team. You will work on real projects and gain valuable experience.",
     responsibilities: [
-      "พัฒนาและดูแล Web Application ทั้งฝั่ง Frontend และ Backend",
-      "ทำงานร่วมกับทีม Design และ Product เพื่อสร้าง Feature ใหม่ๆ",
-      "เขียน Unit Test และ Integration Test",
-      "ปรับปรุง Performance และ Security ของระบบ",
-      "เข้าร่วม Code Review และ Agile Development Process"
+      "Develop and maintain Web Application both Frontend and Backend",
+      "Work with Design and Product teams to create new Features",
+      "Write Unit Test and Integration Test",
+      "Improve Performance and Security of the system",
+      "Participate in Code Review and Agile Development Process"
     ],
     requirements: [
-      "กำลังศึกษาหรือจบการศึกษาด้าน Computer Science, Software Engineering หรือสาขาที่เกี่ยวข้อง",
-      "มีความรู้พื้นฐานเกี่ยวกับ HTML, CSS, JavaScript",
-      "มีประสบการณ์ใช้งาน React, Node.js, หรือ TypeScript (พิจารณาเป็นพิเศษ)",
-      "มีทักษะการแก้ปัญหาและการทำงานเป็นทีม",
-      "สามารถสื่อสารภาษาอังกฤษได้ในระดับดี"
+      "Currently studying or graduated in Computer Science, Software Engineering or related field",
+      "Basic knowledge of HTML, CSS, JavaScript",
+      "Experience with React, Node.js, or TypeScript (Preferred)",
+      "Problem-solving and teamwork skills",
+      "Able to communicate in English at a good level"
     ],
     benefits: [
-      "ค่าตอบแทน 15,000 - 20,000 บาท/เดือน",
-      "ทำงาน 5 วัน/สัปดาห์ (จันทร์-ศุกร์)",
-      "สามารถ Work from Home ได้ 2 วัน/สัปดาห์",
-      "อุปกรณ์ทำงานครบครัน (Laptop, Monitor)",
-      "โอกาสได้งานเต็มเวลาหลังจบฝึกงาน",
-      "สภาพแวดล้อมการทำงานแบบ Startup ที่เป็นกันเอง"
+      "Compensation 15,000 - 20,000 Baht/month",
+      "Work 5 days/week (Mon-Fri)",
+      "Work from Home 2 days/week available",
+      "Complete work equipment (Laptop, Monitor)",
+      "Opportunity for full-time position after internship",
+      "Friendly startup work environment"
     ],
     companyInfo: {
-      name: "บริษัท เทคโนโลยี ABC จำกัด",
-      industry: "เทคโนโลยี / Software Development",
-      size: "51-200 คน",
+      name: "ABC Technology Company Ltd.",
+      industry: "Technology / Software Development",
+      size: "51-200 people",
       website: "www.abctech.com",
-      description: "บริษัทพัฒนาซอฟต์แวร์ชั้นนำที่มุ่งเน้นการสร้างนวัตกรรมทางเทคโนโลยี เรามีโปรเจกต์ที่หลากหลายและทีมงานที่เชี่ยวชาญ"
+      description: "Leading software development company focused on creating technological innovation. We have diverse projects and expert teams."
     }
   };
 
   const handleApply = () => {
-    toast.success("สมัครงานสำเร็จ! บริษัทจะพิจารณาและติดต่อกลับภายใน 3-5 วันทำการ");
+    toast.success("Application successful! The company will review and contact you within 3-5 business days");
     setTimeout(() => navigate('/student/applications'), 1500);
   };
 
@@ -61,7 +61,7 @@ const JobDetails = () => {
       <div className="container mx-auto px-4 py-8">
         <Button variant="ghost" onClick={() => navigate('/student/jobs')} className="mb-4">
           <ArrowLeft className="h-4 w-4 mr-2" />
-          กลับไปหน้าค้นหางาน
+          Back to Job Search
         </Button>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -102,7 +102,7 @@ const JobDetails = () => {
                   </span>
                   <span className="flex items-center gap-1">
                     <Users className="h-4 w-4" />
-                    {jobData.applicants} ผู้สมัคร
+                    {jobData.applicants} applicants
                   </span>
                 </div>
               </CardContent>
@@ -111,7 +111,7 @@ const JobDetails = () => {
             {/* Job Description */}
             <Card>
               <CardHeader>
-                <CardTitle>รายละเอียดงาน</CardTitle>
+                <CardTitle>Job Details</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
@@ -121,7 +121,7 @@ const JobDetails = () => {
                 <Separator />
 
                 <div>
-                  <h3 className="font-semibold mb-3">หน้าที่ความรับผิดชอบ</h3>
+                  <h3 className="font-semibold mb-3">Responsibilities</h3>
                   <ul className="space-y-2">
                     {jobData.responsibilities.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
@@ -135,7 +135,7 @@ const JobDetails = () => {
                 <Separator />
 
                 <div>
-                  <h3 className="font-semibold mb-3">คุณสมบัติที่ต้องการ</h3>
+                  <h3 className="font-semibold mb-3">Qualifications Required</h3>
                   <ul className="space-y-2">
                     {jobData.requirements.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
@@ -149,7 +149,7 @@ const JobDetails = () => {
                 <Separator />
 
                 <div>
-                  <h3 className="font-semibold mb-3">สวัสดิการและผลตอบแทน</h3>
+                  <h3 className="font-semibold mb-3">Benefits and Compensation</h3>
                   <ul className="space-y-2">
                     {jobData.benefits.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
@@ -165,7 +165,7 @@ const JobDetails = () => {
             {/* Company Info */}
             <Card>
               <CardHeader>
-                <CardTitle>เกี่ยวกับบริษัท</CardTitle>
+                <CardTitle>About the Company</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -174,15 +174,15 @@ const JobDetails = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <p className="text-muted-foreground">อุตสาหกรรม</p>
+                    <p className="text-muted-foreground">Industry</p>
                     <p className="font-medium">{jobData.companyInfo.industry}</p>
                   </div>
                   <div>
-                    <p className="text-muted-foreground">ขนาดบริษัท</p>
+                    <p className="text-muted-foreground">Company Size</p>
                     <p className="font-medium">{jobData.companyInfo.size}</p>
                   </div>
                   <div>
-                    <p className="text-muted-foreground">เว็บไซต์</p>
+                    <p className="text-muted-foreground">Website</p>
                     <p className="font-medium text-primary">{jobData.companyInfo.website}</p>
                   </div>
                 </div>
@@ -195,18 +195,18 @@ const JobDetails = () => {
             {/* Apply Card */}
             <Card className="sticky top-4">
               <CardHeader>
-                <CardTitle>สมัครงานตำแหน่งนี้</CardTitle>
-                <CardDescription>ส่งใบสมัครของคุณตอนนี้</CardDescription>
+                <CardTitle>Apply for this Position</CardTitle>
+                <CardDescription>Submit your application now</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button className="w-full" size="lg" onClick={handleApply}>
-                  สมัครงานตำแหน่งนี้
+                  Apply for this Position
                 </Button>
                 <Button variant="outline" className="w-full">
-                  บันทึกงาน
+                  Save Job
                 </Button>
                 <div className="text-xs text-muted-foreground text-center">
-                  โปรไฟล์และเรซูเม่ของคุณจะถูกส่งไปยังบริษัท
+                  Your profile and resume will be sent to the company
                 </div>
               </CardContent>
             </Card>
@@ -214,18 +214,18 @@ const JobDetails = () => {
             {/* Similar Jobs */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">งานที่คล้ายกัน</CardTitle>
+                <CardTitle className="text-lg">Similar Jobs</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {[
-                  { title: "Frontend Developer Intern", company: "บริษัท XYZ", salary: "12,000-18,000" },
-                  { title: "Backend Developer Intern", company: "บริษัท DEF", salary: "15,000-20,000" },
-                  { title: "Mobile Developer Intern", company: "บริษัท GHI", salary: "14,000-19,000" }
+                  { title: "Frontend Developer Intern", company: "XYZ Company", salary: "12,000-18,000" },
+                  { title: "Backend Developer Intern", company: "DEF Company", salary: "15,000-20,000" },
+                  { title: "Mobile Developer Intern", company: "GHI Company", salary: "14,000-19,000" }
                 ].map((job, index) => (
                   <div key={index} className="p-3 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
                     <h4 className="font-semibold text-sm mb-1">{job.title}</h4>
                     <p className="text-xs text-muted-foreground mb-1">{job.company}</p>
-                    <p className="text-xs text-success">{job.salary} บาท/เดือน</p>
+                    <p className="text-xs text-success">{job.salary} Baht/month</p>
                   </div>
                 ))}
               </CardContent>

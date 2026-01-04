@@ -33,7 +33,7 @@ const PostJob = () => {
     setIsLoading(true);
     
     setTimeout(() => {
-      toast.success("ประกาศงานสำเร็จ!");
+      toast.success("Job posted successfully!");
       setIsLoading(false);
       navigate('/company/dashboard');
     }, 1500);
@@ -48,9 +48,9 @@ const PostJob = () => {
             <div className="h-12 w-12 rounded-xl gradient-primary flex items-center justify-center">
               <Briefcase className="h-6 w-6 text-white" />
             </div>
-            <h1 className="text-3xl font-bold">ประกาศตำแหน่งงานใหม่</h1>
+            <h1 className="text-3xl font-bold">Post New Job</h1>
           </div>
-          <p className="text-muted-foreground">กรอกรายละเอียดตำแหน่งงานที่ต้องการรับสมัคร</p>
+          <p className="text-muted-foreground">Fill in the details of the position you want to recruit</p>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -58,22 +58,22 @@ const PostJob = () => {
             {/* Basic Information */}
             <Card>
               <CardHeader>
-                <CardTitle>ข้อมูลพื้นฐาน</CardTitle>
-                <CardDescription>รายละเอียดหลักของตำแหน่งงาน</CardDescription>
+                <CardTitle>Basic Information</CardTitle>
+                <CardDescription>Main details of the position</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="position">ชื่อตำแหน่ง *</Label>
+                  <Label htmlFor="position">Position Title *</Label>
                   <Input
                     id="position"
-                    placeholder="เช่น Full-Stack Developer Intern"
+                    placeholder="e.g. Full-Stack Developer Intern"
                     required
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="type">ประเภทงาน *</Label>
+                    <Label htmlFor="type">Job Type *</Label>
                     <Select defaultValue="fulltime">
                       <SelectTrigger>
                         <SelectValue />
@@ -172,18 +172,18 @@ const PostJob = () => {
             {/* Skills */}
             <Card>
               <CardHeader>
-                <CardTitle>ทักษะที่ต้องการ</CardTitle>
-                <CardDescription>ระบุทักษะหรือเทคโนโลยีที่ต้องการ</CardDescription>
+                <CardTitle>Required Skills</CardTitle>
+                <CardDescription>Specify skills or technologies required</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex gap-2">
                   <Input
                     value={currentSkill}
                     onChange={(e) => setCurrentSkill(e.target.value)}
-                    placeholder="เช่น React, Python, SQL..."
+                    placeholder="e.g. React, Python, SQL..."
                     onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addSkill())}
                   />
-                  <Button type="button" onClick={addSkill}>เพิ่ม</Button>
+                  <Button type="button" onClick={addSkill}>Add</Button>
                 </div>
 
                 {skills.length > 0 && (
@@ -212,14 +212,14 @@ const PostJob = () => {
                 className="flex-1 shadow-primary"
                 disabled={isLoading}
               >
-                {isLoading ? "กำลังประกาศงาน..." : "ประกาศงาน"}
+                {isLoading ? "Posting job..." : "Post Job"}
               </Button>
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => navigate('/company/dashboard')}
               >
-                ยกเลิก
+                Cancel
               </Button>
             </div>
           </div>

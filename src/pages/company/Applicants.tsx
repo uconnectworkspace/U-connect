@@ -15,78 +15,78 @@ const Applicants = () => {
   const applicants = [
     {
       id: 1,
-      name: "สมชาย ใจดี",
+      name: "Somchai Jaidee",
       avatar: "👨‍💻",
       position: "Full-Stack Developer Intern",
-      university: "จุฬาลงกรณ์มหาวิทยาลัย",
-      faculty: "วิศวกรรมศาสตร์",
-      year: "ปี 3",
+      university: "Chulalongkorn University",
+      faculty: "Engineering",
+      year: "Year 3",
       gpa: "3.65",
       email: "somchai@email.com",
       phone: "081-234-5678",
       skills: ["React", "Node.js", "MongoDB", "TypeScript"],
       status: "new",
-      appliedDate: "2 วันที่แล้ว",
+      appliedDate: "2 days ago",
     },
     {
       id: 2,
-      name: "สมหญิง รักเรียน",
+      name: "Somying Rakrian",
       avatar: "👩‍💼",
       position: "Data Analyst Intern",
-      university: "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี",
-      faculty: "วิทยาศาสตร์",
-      year: "ปี 4",
+      university: "King Mongkut's University of Technology Thonburi",
+      faculty: "Science",
+      year: "Year 4",
       gpa: "3.82",
       email: "somying@email.com",
       phone: "082-345-6789",
       skills: ["Python", "SQL", "Tableau", "Excel"],
       status: "reviewed",
-      appliedDate: "3 วันที่แล้ว",
+      appliedDate: "3 days ago",
     },
     {
       id: 3,
-      name: "วิทยา สร้างสรรค์",
+      name: "Wittaya Sangsarn",
       avatar: "👨‍🎓",
       position: "Marketing Intern",
-      university: "มหาวิทยาลัยธรรมศาสตร์",
-      faculty: "นิเทศศาสตร์",
-      year: "ปี 3",
+      university: "Thammasat University",
+      faculty: "Communication Arts",
+      year: "Year 3",
       gpa: "3.45",
       email: "wittaya@email.com",
       phone: "083-456-7890",
       skills: ["SEO", "Social Media", "Google Ads", "Content Writing"],
       status: "shortlisted",
-      appliedDate: "5 วันที่แล้ว",
+      appliedDate: "5 days ago",
     },
     {
       id: 4,
-      name: "ประภา ขยัน",
+      name: "Prapha Kayan",
       avatar: "👩‍💻",
       position: "Full-Stack Developer Intern",
-      university: "มหาวิทยาลัยเกษตรศาสตร์",
-      faculty: "วิศวกรรมศาสตร์",
-      year: "ปี 4",
+      university: "Kasetsart University",
+      faculty: "Engineering",
+      year: "Year 4",
       gpa: "3.75",
       email: "prapha@email.com",
       phone: "084-567-8901",
       skills: ["React", "Python", "PostgreSQL", "Docker"],
       status: "interview",
-      appliedDate: "1 สัปดาห์ที่แล้ว",
+      appliedDate: "1 week ago",
     },
   ];
 
   const getStatusInfo = (status: string) => {
     switch (status) {
       case "new":
-        return { label: "ใหม่", color: "bg-blue-500/10 text-blue-700 dark:text-blue-400" };
+        return { label: "New", color: "bg-blue-500/10 text-blue-700 dark:text-blue-400" };
       case "reviewed":
-        return { label: "ตรวจสอบแล้ว", color: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400" };
+        return { label: "Reviewed", color: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400" };
       case "shortlisted":
-        return { label: "คัดเลือกแล้ว", color: "bg-green-500/10 text-green-700 dark:text-green-400" };
+        return { label: "Shortlisted", color: "bg-green-500/10 text-green-700 dark:text-green-400" };
       case "interview":
-        return { label: "นัดสัมภาษณ์", color: "bg-purple-500/10 text-purple-700 dark:text-purple-400" };
+        return { label: "Interview Scheduled", color: "bg-purple-500/10 text-purple-700 dark:text-purple-400" };
       case "rejected":
-        return { label: "ไม่ผ่าน", color: "bg-red-500/10 text-red-700 dark:text-red-400" };
+        return { label: "Rejected", color: "bg-red-500/10 text-red-700 dark:text-red-400" };
       default:
         return { label: status, color: "bg-muted" };
     }
@@ -98,7 +98,7 @@ const Applicants = () => {
   };
 
   const handleStatusChange = (applicantName: string, newStatus: string) => {
-    toast.success(`เปลี่ยนสถานะของ ${applicantName} เป็น ${getStatusInfo(newStatus).label}`);
+    toast.success(`Changed status of ${applicantName} to ${getStatusInfo(newStatus).label}`);
   };
 
   const ApplicantCard = ({ applicant }: { applicant: typeof applicants[0] }) => {
@@ -125,7 +125,7 @@ const Applicants = () => {
               </div>
 
               <div className="mb-3">
-                <p className="text-sm font-medium mb-2">สมัครตำแหน่ง: {applicant.position}</p>
+                <p className="text-sm font-medium mb-2">Applied for: {applicant.position}</p>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <Mail className="h-4 w-4" />
@@ -139,7 +139,7 @@ const Applicants = () => {
               </div>
 
               <div className="mb-4">
-                <p className="text-sm font-medium mb-2">ทักษะ:</p>
+                <p className="text-sm font-medium mb-2">Skills:</p>
                 <div className="flex flex-wrap gap-2">
                   {applicant.skills.map((skill, idx) => (
                     <Badge key={idx} variant="secondary">{skill}</Badge>
@@ -153,24 +153,24 @@ const Applicants = () => {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="new">ใหม่</SelectItem>
-                    <SelectItem value="reviewed">ตรวจสอบแล้ว</SelectItem>
-                    <SelectItem value="shortlisted">คัดเลือก</SelectItem>
-                    <SelectItem value="interview">นัดสัมภาษณ์</SelectItem>
-                    <SelectItem value="rejected">ไม่ผ่าน</SelectItem>
+                    <SelectItem value="new">New</SelectItem>
+                    <SelectItem value="reviewed">Reviewed</SelectItem>
+                    <SelectItem value="shortlisted">Shortlisted</SelectItem>
+                    <SelectItem value="interview">Interview</SelectItem>
+                    <SelectItem value="rejected">Rejected</SelectItem>
                   </SelectContent>
                 </Select>
                 <Button variant="outline" size="sm">
                   <FileText className="h-4 w-4 mr-2" />
-                  เรซูเม่
+                  Resume
                 </Button>
                 <Button size="sm">
                   <MessageSquare className="h-4 w-4 mr-2" />
-                  ส่งข้อความ
+                  Send Message
                 </Button>
               </div>
 
-              <p className="text-xs text-muted-foreground mt-3">สมัครเมื่อ {applicant.appliedDate}</p>
+              <p className="text-xs text-muted-foreground mt-3">Applied {applicant.appliedDate}</p>
             </div>
           </div>
         </CardContent>
@@ -183,8 +183,8 @@ const Applicants = () => {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">จัดการผู้สมัคร</h1>
-          <p className="text-muted-foreground">ตรวจสอบและคัดเลือกผู้สมัครงาน</p>
+          <h1 className="text-3xl font-bold mb-2">Manage Applicants</h1>
+          <p className="text-muted-foreground">Review and select job applicants</p>
         </div>
 
         {/* Search and Filters */}
@@ -194,7 +194,7 @@ const Applicants = () => {
               <div className="md:col-span-1 relative">
                 <Search className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                 <Input
-                  placeholder="ค้นหาชื่อ, มหาวิทยาลัย..."
+                  placeholder="Search name, university..."
                   className="pl-10"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -202,10 +202,10 @@ const Applicants = () => {
               </div>
               <Select defaultValue="all">
                 <SelectTrigger>
-                  <SelectValue placeholder="ตำแหน่งงาน" />
+                  <SelectValue placeholder="Position" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">ทั้งหมด</SelectItem>
+                  <SelectItem value="all">All</SelectItem>
                   <SelectItem value="dev">Developer</SelectItem>
                   <SelectItem value="data">Data Analyst</SelectItem>
                   <SelectItem value="marketing">Marketing</SelectItem>
@@ -213,13 +213,13 @@ const Applicants = () => {
               </Select>
               <Select defaultValue="all">
                 <SelectTrigger>
-                  <SelectValue placeholder="มหาวิทยาลัย" />
+                  <SelectValue placeholder="University" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">ทุกมหาวิทยาลัย</SelectItem>
-                  <SelectItem value="cu">จุฬาลงกรณ์</SelectItem>
-                  <SelectItem value="kmutt">ม.พระจอมเกล้าธนบุรี</SelectItem>
-                  <SelectItem value="tu">ธรรมศาสตร์</SelectItem>
+                  <SelectItem value="all">All Universities</SelectItem>
+                  <SelectItem value="cu">Chulalongkorn</SelectItem>
+                  <SelectItem value="kmutt">KMUTT</SelectItem>
+                  <SelectItem value="tu">Thammasat</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -228,11 +228,11 @@ const Applicants = () => {
 
         <Tabs defaultValue="all" className="space-y-6">
           <TabsList className="grid w-full max-w-3xl grid-cols-5">
-            <TabsTrigger value="all">ทั้งหมด ({applicants.length})</TabsTrigger>
-            <TabsTrigger value="new">ใหม่ ({filterApplicants("new").length})</TabsTrigger>
-            <TabsTrigger value="reviewed">ตรวจแล้ว ({filterApplicants("reviewed").length})</TabsTrigger>
-            <TabsTrigger value="shortlisted">คัดเลือก ({filterApplicants("shortlisted").length})</TabsTrigger>
-            <TabsTrigger value="interview">สัมภาษณ์ ({filterApplicants("interview").length})</TabsTrigger>
+            <TabsTrigger value="all">All ({applicants.length})</TabsTrigger>
+            <TabsTrigger value="new">New ({filterApplicants("new").length})</TabsTrigger>
+            <TabsTrigger value="reviewed">Reviewed ({filterApplicants("reviewed").length})</TabsTrigger>
+            <TabsTrigger value="shortlisted">Shortlisted ({filterApplicants("shortlisted").length})</TabsTrigger>
+            <TabsTrigger value="interview">Interview ({filterApplicants("interview").length})</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="space-y-4">

@@ -18,31 +18,31 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              แพลตฟอร์มจับคู่งานสำหรับนักศึกษาและบริษัท 
-              ที่ได้รับความไว้วางใจจากมหาวิทยาลัยชั้นนำ
+              Job matching platform for students and companies 
+              trusted by leading universities
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">สำหรับนักศึกษา</h3>
+            <h3 className="font-semibold mb-4">For Students</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="hover:text-primary cursor-pointer transition-colors">ค้นหางาน</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">สร้างโปรไฟล์</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">คำแนะนำ</li>
+              <li className="hover:text-primary cursor-pointer transition-colors">Find Jobs</li>
+              <li className="hover:text-primary cursor-pointer transition-colors">Create Profile</li>
+              <li className="hover:text-primary cursor-pointer transition-colors">Tips</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">สำหรับบริษัท</h3>
+            <h3 className="font-semibold mb-4">For Companies</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="hover:text-primary cursor-pointer transition-colors">ประกาศงาน</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">ค้นหาผู้สมัคร</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">แผนและราคา</li>
+              <li className="hover:text-primary cursor-pointer transition-colors">Post Jobs</li>
+              <li className="hover:text-primary cursor-pointer transition-colors">Find Candidates</li>
+              <li className="hover:text-primary cursor-pointer transition-colors">Plans & Pricing</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">ติดต่อเรา</h3>
+            <h3 className="font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                กรุงเทพฯ ประเทศไทย
+                Bangkok, Thailand
               </li>
             </ul>
           </div>

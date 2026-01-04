@@ -15,21 +15,21 @@ const ManageUniversities = () => {
   const [filterStatus, setFilterStatus] = useState("all");
 
   const universities = [
-    { id: 1, name: "จุฬาลงกรณ์มหาวิทยาลัย", email: "admin@chula.ac.th", students: 856, placements: 623, rate: 72.8, status: "active" },
-    { id: 2, name: "มหาวิทยาลัยธรรมศาสตร์", email: "admin@tu.ac.th", students: 742, placements: 518, rate: 69.8, status: "active" },
-    { id: 3, name: "มหาวิทยาลัยเกษตรศาสตร์", email: "admin@ku.ac.th", students: 689, placements: 467, rate: 67.8, status: "active" },
-    { id: 4, name: "มหาวิทยาลัยมหิดล", email: "admin@mahidol.ac.th", students: 534, placements: 389, rate: 72.8, status: "active" },
-    { id: 5, name: "มหาวิทยาลัยเทคโนโลยีสุรนารี", email: "admin@sut.ac.th", students: 423, placements: 298, rate: 70.4, status: "pending" },
+    { id: 1, name: "Chulalongkorn University", email: "admin@chula.ac.th", students: 856, placements: 623, rate: 72.8, status: "active" },
+    { id: 2, name: "Thammasat University", email: "admin@tu.ac.th", students: 742, placements: 518, rate: 69.8, status: "active" },
+    { id: 3, name: "Kasetsart University", email: "admin@ku.ac.th", students: 689, placements: 467, rate: 67.8, status: "active" },
+    { id: 4, name: "Mahidol University", email: "admin@mahidol.ac.th", students: 534, placements: 389, rate: 72.8, status: "active" },
+    { id: 5, name: "Suranaree University of Technology", email: "admin@sut.ac.th", students: 423, placements: 298, rate: 70.4, status: "pending" },
   ];
 
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "active":
-        return <Badge className="bg-green-500">อนุมัติแล้ว</Badge>;
+        return <Badge className="bg-green-500">Approved</Badge>;
       case "banned":
-        return <Badge variant="destructive">ถูกระงับ</Badge>;
+        return <Badge variant="destructive">Suspended</Badge>;
       case "pending":
-        return <Badge variant="outline" className="text-yellow-600">รออนุมัติ</Badge>;
+        return <Badge variant="outline" className="text-yellow-600">Pending Approval</Badge>;
       default:
         return null;
     }
@@ -48,10 +48,10 @@ const ManageUniversities = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Button variant="ghost" onClick={() => navigate('/admin/dashboard')} className="mb-4">
-            ← กลับไปแดชบอร์ด
+            ← Back to Dashboard
           </Button>
-          <h1 className="text-3xl font-bold mb-2">จัดการมหาวิทยาลัย 🏛️</h1>
-          <p className="text-muted-foreground">ดูและจัดการข้อมูลมหาวิทยาลัยพาร์ทเนอร์ทั้งหมด</p>
+          <h1 className="text-3xl font-bold mb-2">Manage Universities 🏛️</h1>
+          <p className="text-muted-foreground">View and manage all partner university data</p>
         </div>
 
         {/* Stats */}
@@ -59,25 +59,25 @@ const ManageUniversities = () => {
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1 text-green-600">21</p>
-              <p className="text-sm text-muted-foreground">อนุมัติแล้ว</p>
+              <p className="text-sm text-muted-foreground">Approved</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1 text-yellow-600">5</p>
-              <p className="text-sm text-muted-foreground">รออนุมัติ</p>
+              <p className="text-sm text-muted-foreground">Pending Approval</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1 text-red-600">1</p>
-              <p className="text-sm text-muted-foreground">ถูกระงับ</p>
+              <p className="text-sm text-muted-foreground">Suspended</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <p className="text-3xl font-bold mb-1">27</p>
-              <p className="text-sm text-muted-foreground">รวมทั้งหมด</p>
+              <p className="text-sm text-muted-foreground">Total</p>
             </CardContent>
           </Card>
         </div>
@@ -85,14 +85,14 @@ const ManageUniversities = () => {
         {/* Search and Filter */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>ค้นหาและกรองข้อมูล</CardTitle>
+            <CardTitle>Search and Filter</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="ค้นหาด้วยชื่อมหาวิทยาลัยหรืออีเมล..."
+                  placeholder="Search by university name or email..."
                   className="pl-10"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -101,13 +101,13 @@ const ManageUniversities = () => {
               <Select value={filterStatus} onValueChange={setFilterStatus}>
                 <SelectTrigger className="w-full md:w-[200px]">
                   <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="กรองสถานะ" />
+                  <SelectValue placeholder="Filter Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">ทั้งหมด</SelectItem>
-                  <SelectItem value="active">อนุมัติแล้ว</SelectItem>
-                  <SelectItem value="pending">รออนุมัติ</SelectItem>
-                  <SelectItem value="banned">ถูกระงับ</SelectItem>
+                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem value="active">Approved</SelectItem>
+                  <SelectItem value="pending">Pending Approval</SelectItem>
+                  <SelectItem value="banned">Suspended</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -117,20 +117,20 @@ const ManageUniversities = () => {
         {/* Universities Table */}
         <Card>
           <CardHeader>
-            <CardTitle>รายชื่อมหาวิทยาลัย</CardTitle>
-            <CardDescription>พบ {filteredUniversities.length} รายการ</CardDescription>
+            <CardTitle>University List</CardTitle>
+            <CardDescription>Found {filteredUniversities.length} records</CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>ชื่อมหาวิทยาลัย</TableHead>
-                  <TableHead>อีเมล</TableHead>
-                  <TableHead>จำนวนนักศึกษา</TableHead>
-                  <TableHead>จับคู่สำเร็จ</TableHead>
-                  <TableHead>อัตราความสำเร็จ</TableHead>
-                  <TableHead>สถานะ</TableHead>
-                  <TableHead className="text-right">การดำเนินการ</TableHead>
+                  <TableHead>University Name</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>Students</TableHead>
+                  <TableHead>Successful Placements</TableHead>
+                  <TableHead>Success Rate</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

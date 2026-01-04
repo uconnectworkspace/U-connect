@@ -9,44 +9,44 @@ const Applications = () => {
   const applications = [
     {
       id: 1,
-      company: "บริษัท เทคโนโลยี A",
+      company: "Technology Company A",
       logo: "🚀",
       position: "Full-Stack Developer Intern",
       status: "pending",
-      appliedDate: "15 ม.ค. 2567",
-      lastUpdate: "2 วันที่แล้ว",
+      appliedDate: "Jan 15, 2024",
+      lastUpdate: "2 days ago",
       messages: 0,
     },
     {
       id: 2,
-      company: "บริษัท การเงิน B",
+      company: "Financial Company B",
       logo: "💰",
       position: "Data Analyst Intern",
       status: "interview",
-      appliedDate: "12 ม.ค. 2567",
-      lastUpdate: "5 วันที่แล้ว",
-      interviewDate: "25 ม.ค. 2567 เวลา 14:00",
+      appliedDate: "Jan 12, 2024",
+      lastUpdate: "5 days ago",
+      interviewDate: "Jan 25, 2024 at 14:00",
       messages: 3,
     },
     {
       id: 3,
-      company: "บริษัท การตลาด C",
+      company: "Marketing Company C",
       logo: "📱",
       position: "Marketing Intern",
       status: "accepted",
-      appliedDate: "8 ม.ค. 2567",
-      lastUpdate: "1 สัปดาห์ที่แล้ว",
-      startDate: "1 ก.พ. 2567",
+      appliedDate: "Jan 8, 2024",
+      lastUpdate: "1 week ago",
+      startDate: "Feb 1, 2024",
       messages: 5,
     },
     {
       id: 4,
-      company: "บริษัท AI Startup",
+      company: "AI Startup",
       logo: "🤖",
       position: "Machine Learning Intern",
       status: "rejected",
-      appliedDate: "5 ม.ค. 2567",
-      lastUpdate: "10 วันที่แล้ว",
+      appliedDate: "Jan 5, 2024",
+      lastUpdate: "10 days ago",
       messages: 1,
     },
   ];
@@ -54,13 +54,13 @@ const Applications = () => {
   const getStatusInfo = (status: string) => {
     switch (status) {
       case "pending":
-        return { label: "รอการพิจารณา", color: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400" };
+        return { label: "Under Review", color: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400" };
       case "interview":
-        return { label: "ได้รับเชิญสัมภาษณ์", color: "bg-blue-500/10 text-blue-700 dark:text-blue-400" };
+        return { label: "Interview Invited", color: "bg-blue-500/10 text-blue-700 dark:text-blue-400" };
       case "accepted":
-        return { label: "ตอบรับแล้ว", color: "bg-green-500/10 text-green-700 dark:text-green-400" };
+        return { label: "Accepted", color: "bg-green-500/10 text-green-700 dark:text-green-400" };
       case "rejected":
-        return { label: "ไม่ผ่านการพิจารณา", color: "bg-red-500/10 text-red-700 dark:text-red-400" };
+        return { label: "Not Selected", color: "bg-red-500/10 text-red-700 dark:text-red-400" };
       default:
         return { label: status, color: "bg-muted" };
     }
@@ -94,13 +94,13 @@ const Applications = () => {
               <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
-                  สมัครเมื่อ {app.appliedDate}
+                  Applied on {app.appliedDate}
                 </span>
-                <span>อัพเดทล่าสุด: {app.lastUpdate}</span>
+                <span>Last update: {app.lastUpdate}</span>
                 {app.messages > 0 && (
                   <span className="flex items-center gap-1 text-primary">
                     <MessageSquare className="h-4 w-4" />
-                    {app.messages} ข้อความใหม่
+                    {app.messages} new messages
                   </span>
                 )}
               </div>
@@ -108,7 +108,7 @@ const Applications = () => {
               {app.status === "interview" && app.interviewDate && (
                 <div className="mb-4 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
                   <p className="text-sm font-medium text-blue-700 dark:text-blue-400">
-                    📅 นัดสัมภาษณ์: {app.interviewDate}
+                    📅 Interview scheduled: {app.interviewDate}
                   </p>
                 </div>
               )}
@@ -116,17 +116,17 @@ const Applications = () => {
               {app.status === "accepted" && app.startDate && (
                 <div className="mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20">
                   <p className="text-sm font-medium text-green-700 dark:text-green-400">
-                    🎉 วันเริ่มงาน: {app.startDate}
+                    🎉 Start date: {app.startDate}
                   </p>
                 </div>
               )}
 
               <div className="flex gap-2">
-                <Button variant="outline" size="sm">ดูรายละเอียด</Button>
+                <Button variant="outline" size="sm">View Details</Button>
                 {app.messages > 0 && (
                   <Button size="sm">
                     <MessageSquare className="h-4 w-4 mr-2" />
-                    ดูข้อความ
+                    View Messages
                   </Button>
                 )}
               </div>
@@ -142,17 +142,17 @@ const Applications = () => {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">การสมัครของฉัน</h1>
-          <p className="text-muted-foreground">ติดตามสถานะการสมัครงานทั้งหมด</p>
+          <h1 className="text-3xl font-bold mb-2">My Applications</h1>
+          <p className="text-muted-foreground">Track all job application statuses</p>
         </div>
 
         <Tabs defaultValue="all" className="space-y-6">
           <TabsList className="grid w-full max-w-2xl grid-cols-5">
-            <TabsTrigger value="all">ทั้งหมด ({applications.length})</TabsTrigger>
-            <TabsTrigger value="pending">รอพิจารณา ({filterApplications("pending").length})</TabsTrigger>
-            <TabsTrigger value="interview">สัมภาษณ์ ({filterApplications("interview").length})</TabsTrigger>
-            <TabsTrigger value="accepted">ตอบรับ ({filterApplications("accepted").length})</TabsTrigger>
-            <TabsTrigger value="rejected">ไม่ผ่าน ({filterApplications("rejected").length})</TabsTrigger>
+            <TabsTrigger value="all">All ({applications.length})</TabsTrigger>
+            <TabsTrigger value="pending">Under Review ({filterApplications("pending").length})</TabsTrigger>
+            <TabsTrigger value="interview">Interview ({filterApplications("interview").length})</TabsTrigger>
+            <TabsTrigger value="accepted">Accepted ({filterApplications("accepted").length})</TabsTrigger>
+            <TabsTrigger value="rejected">Not Selected ({filterApplications("rejected").length})</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all" className="space-y-4">

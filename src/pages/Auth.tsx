@@ -19,10 +19,10 @@ const Auth = () => {
 
   const getRoleTitle = () => {
     switch (role) {
-      case "student": return "นักศึกษา";
-      case "company": return "บริษัท";
-      case "university": return "มหาวิทยาลัย";
-      default: return "ผู้ใช้งาน";
+      case "student": return "Student";
+      case "company": return "Company";
+      case "university": return "University";
+      default: return "User";
     }
   };
 
@@ -36,22 +36,22 @@ const Auth = () => {
       const validPassword = password === "1234678";
 
       if (!validPassword) {
-        toast.error("รหัสผ่านไม่ถูกต้อง (ใช้: 1234678)");
+        toast.error("Incorrect password (use: 1234678)");
         setIsLoading(false);
         return;
       }
 
       if (normalized === "student@gmail.com") {
-        toast.success("เข้าสู่ระบบในฐานะนักศึกษา");
+        toast.success("Logged in as Student");
         navigate("/student/dashboard");
       } else if (normalized === "uni@gmail.com" || normalized === "university@gmail.com") {
-        toast.success("เข้าสู่ระบบในฐานะมหาวิทยาลัย");
+        toast.success("Logged in as University");
         navigate("/university/dashboard");
       } else if (normalized === "comp@gmail.com" || normalized === "company@gmail.com") {
-        toast.success("เข้าสู่ระบบในฐานะบริษัท");
+        toast.success("Logged in as Company");
         navigate("/company/dashboard");
       } else {
-        toast.error("ไม่พบบัญชีผู้ใช้ กรุณาใช้ student@gmail.com, uni@gmail.com หรือ comp@gmail.com");
+        toast.error("Account not found. Please use student@gmail.com, uni@gmail.com or comp@gmail.com");
       }
 
       setIsLoading(false);
@@ -67,7 +67,7 @@ const Auth = () => {
           onClick={() => navigate("/")}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          กลับหน้าแรก
+          Back to Home
         </Button>
 
         <Card className="border-2">
@@ -78,9 +78,9 @@ const Auth = () => {
               </div>
             </div>
             <div className="text-center">
-              <CardTitle className="text-2xl">ยินดีต้อนรับ</CardTitle>
+              <CardTitle className="text-2xl">Welcome</CardTitle>
               <CardDescription className="text-base mt-2">
-                เข้าสู่ระบบสำหรับ{getRoleTitle()}
+                Sign in for {getRoleTitle()}
               </CardDescription>
             </div>
           </CardHeader>
@@ -88,14 +88,14 @@ const Auth = () => {
           <CardContent>
             <Tabs defaultValue="login" className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="login">เข้าสู่ระบบ</TabsTrigger>
-                <TabsTrigger value="register">ลงทะเบียน</TabsTrigger>
+                <TabsTrigger value="login">Sign In</TabsTrigger>
+                <TabsTrigger value="register">Sign Up</TabsTrigger>
               </TabsList>
 
               <TabsContent value="login">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">อีเมล</Label>
+                    <Label htmlFor="email">Email</Label>
                     <Input
                       id="email"
                       type="email"
@@ -106,7 +106,7 @@ const Auth = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="password">รหัสผ่าน</Label>
+                    <Label htmlFor="password">Password</Label>
                     <Input
                       id="password"
                       type="password"
@@ -118,14 +118,14 @@ const Auth = () => {
                   </div>
                   {/* Mock credentials helper */}
                   <div className="text-sm text-muted-foreground">
-                    ทดสอบบัญชี: student@gmail.com, uni@gmail.com, comp@gmail.com — รหัสผ่าน: 1234678
+                    Test accounts: student@gmail.com, uni@gmail.com, comp@gmail.com — Password: 1234678
                   </div>
                   <Button
                     type="submit"
                     className="w-full shadow-primary"
                     disabled={isLoading}
                   >
-                    {isLoading ? "กำลังเข้าสู่ระบบ..." : "เข้าสู่ระบบ"}
+                    {isLoading ? "Signing in..." : "Sign In"}
                   </Button>
                 </form>
               </TabsContent>
@@ -133,16 +133,16 @@ const Auth = () => {
               <TabsContent value="register">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">ชื่อ-นามสกุล</Label>
+                    <Label htmlFor="name">Full Name</Label>
                     <Input
                       id="name"
                       type="text"
-                      placeholder="กรุณากรอกชื่อ-นามสกุล"
+                      placeholder="Please enter your full name"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="reg-email">อีเมล</Label>
+                    <Label htmlFor="reg-email">Email</Label>
                     <Input
                       id="reg-email"
                       type="email"
@@ -151,7 +151,7 @@ const Auth = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="reg-password">รหัสผ่าน</Label>
+                    <Label htmlFor="reg-password">Password</Label>
                     <Input
                       id="reg-password"
                       type="password"
@@ -160,7 +160,7 @@ const Auth = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="confirm-password">ยืนยันรหัสผ่าน</Label>
+                    <Label htmlFor="confirm-password">Confirm Password</Label>
                     <Input
                       id="confirm-password"
                       type="password"
@@ -173,7 +173,7 @@ const Auth = () => {
                     className="w-full shadow-primary"
                     disabled={isLoading}
                   >
-                    {isLoading ? "กำลังลงทะเบียน..." : "ลงทะเบียน"}
+                    {isLoading ? "Signing up..." : "Sign Up"}
                   </Button>
                 </form>
               </TabsContent>
