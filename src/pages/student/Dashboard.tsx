@@ -10,41 +10,41 @@ const StudentDashboard = () => {
   const navigate = useNavigate();
 
   const recentApplications = [
-    { id: 1, company: "บริษัท เทคโนโลยี A", position: "Full-Stack Developer Intern", status: "รอการพิจารณา", date: "2 วันที่แล้ว" },
-    { id: 2, company: "บริษัท การเงิน B", position: "Data Analyst Intern", status: "ได้รับเชิญสัมภาษณ์", date: "5 วันที่แล้ว" },
-    { id: 3, company: "บริษัท การตลาด C", position: "Marketing Intern", status: "ตอบรับแล้ว", date: "1 สัปดาห์ที่แล้ว" },
+    { id: 1, company: "Technology A Company", position: "Full-Stack Developer Intern", status: "Under Review", date: "2 days ago" },
+    { id: 2, company: "Finance B Company", position: "Data Analyst Intern", status: "Interview Invited", date: "5 days ago" },
+    { id: 3, company: "Marketing C Company", position: "Marketing Intern", status: "Accepted", date: "1 week ago" },
   ];
 
   const recommendedJobs = [
-    { id: 1, company: "บริษัท AI Startup", position: "Machine Learning Intern", location: "กรุงเทพฯ", type: "Part-time" },
-    { id: 2, company: "บริษัท E-commerce", position: "Frontend Developer Intern", location: "ระยอง", type: "Full-time" },
-    { id: 3, company: "บริษัท Consulting", position: "Business Analyst Intern", location: "รีโมท", type: "Hybrid" },
+    { id: 1, company: "AI Startup Company", position: "Machine Learning Intern", location: "Bangkok", type: "Part-time" },
+    { id: 2, company: "E-commerce Company", position: "Frontend Developer Intern", location: "Rayong", type: "Full-time" },
+    { id: 3, company: "Consulting Company", position: "Business Analyst Intern", location: "Remote", type: "Hybrid" },
   ];
 
   const stats = [
-    { label: "การสมัครทั้งหมด", value: "12", icon: Briefcase, color: "text-primary" },
-    { label: "รอการตอบรับ", value: "5", icon: BookOpen, color: "text-warning" },
-    { label: "ได้รับเชิญสัมภาษณ์", value: "3", icon: Star, color: "text-success" },
-    { label: "ข้อความใหม่", value: "2", icon: MessageSquare, color: "text-accent" },
+    { label: "Total Applications", value: "12", icon: Briefcase, color: "text-primary" },
+    { label: "Awaiting Response", value: "5", icon: BookOpen, color: "text-warning" },
+    { label: "Interview Invitations", value: "3", icon: Star, color: "text-success" },
+    { label: "New Messages", value: "2", icon: MessageSquare, color: "text-accent" },
   ];
 
   const promotions = [
     {
       id: 1,
-      title: "บริษัทตัวอย่าง XYZ กำลังรับสมัครนักศึกษาฝึกงาน",
-      desc: "ตำแหน่ง Full-Stack / Data / Marketing — ช่วงฝึกงานแบบชำระค่าตอบแทน พร้อมโปรแกรมพัฒนาและรีโมทได้",
+      title: "XYZ Company is Recruiting Student Interns",
+      desc: "Full-Stack / Data / Marketing positions — Paid internship with development programs and remote options",
       companyQuery: "xyz"
     },
     {
       id: 2,
-      title: "บริษัท NextGen รับสมัครนักศึกษา AI",
-      desc: "โอกาสฝึกงานด้าน Machine Learning พร้อมโปรเจคจริง และเมนเทอร์จากวงการ",
+      title: "NextGen Company Recruiting AI Students",
+      desc: "Machine Learning internship opportunity with real projects and industry mentors",
       companyQuery: "nextgen"
     },
     {
       id: 3,
-      title: "สตาร์ทอัพ Ecom เปิดรับฝึกงานด้าน Frontend",
-      desc: "งานแบบ Hybrid พร้อม workshop และสวัสดิการสำหรับนักศึกษา",
+      title: "Ecom Startup Opens Frontend Internships",
+      desc: "Hybrid work with workshops and student benefits",
       companyQuery: "ecom"
     }
   ];
@@ -71,9 +71,9 @@ const StudentDashboard = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "รอการพิจารณา": return "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400";
-      case "ได้รับเชิญสัมภาษณ์": return "bg-blue-500/10 text-blue-700 dark:text-blue-400";
-      case "ตอบรับแล้ว": return "bg-green-500/10 text-green-700 dark:text-green-400";
+      case "Under Review": return "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400";
+      case "Interview Invited": return "bg-blue-500/10 text-blue-700 dark:text-blue-400";
+      case "Accepted": return "bg-green-500/10 text-green-700 dark:text-green-400";
       default: return "bg-muted";
     }
   };
@@ -83,8 +83,8 @@ const StudentDashboard = () => {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">ยินดีต้อนรับกลับ, สมชาย! 👋</h1>
-          <p className="text-muted-foreground">ติดตามความคืบหน้าและค้นหาโอกาสใหม่ๆ</p>
+          <h1 className="text-3xl font-bold mb-2">Welcome Back, Somchai! 👋</h1>
+          <p className="text-muted-foreground">Track your progress and find new opportunities</p>
 
           {/* Promotion Banner -> Carousel */}
           <div className="mt-6">
@@ -108,8 +108,8 @@ const StudentDashboard = () => {
                             <p className="text-xs md:text-sm text-muted-foreground mt-2">{p.desc}</p>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Button size="sm" onClick={() => navigate(`/student/jobs?company=${p.companyQuery}`)}>ดูตำแหน่งงาน</Button>
-                            <Button size="sm" variant="outline" onClick={() => navigate(`/student/contact-company/${p.companyQuery}`)}>ติดต่อบริษัท</Button>
+                            <Button size="sm" onClick={() => navigate(`/student/jobs?company=${p.companyQuery}`)}>View Positions</Button>
+                            <Button size="sm" variant="outline" onClick={() => navigate(`/student/contact-company/${p.companyQuery}`)}>Contact Company</Button>
                           </div>
                         </CardContent>
                       </Card>
@@ -176,11 +176,11 @@ const StudentDashboard = () => {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle>การสมัครล่าสุด</CardTitle>
-                  <CardDescription>ติดตามสถานะการสมัครของคุณ</CardDescription>
+                  <CardTitle>Recent Applications</CardTitle>
+                  <CardDescription>Track your application status</CardDescription>
                 </div>
                 <Button variant="ghost" size="sm" onClick={() => navigate('/student/applications')}>
-                  ดูทั้งหมด
+                  View All
                 </Button>
               </div>
             </CardHeader>
@@ -205,13 +205,13 @@ const StudentDashboard = () => {
                 <div>
                   <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="h-5 w-5 text-primary" />
-                    งานแนะนำสำหรับคุณ
+                    Recommended Jobs
                   </CardTitle>
-                  <CardDescription>ตำแหน่งที่เหมาะกับโปรไฟล์ของคุณ</CardDescription>
+                  <CardDescription>Positions matching your profile</CardDescription>
                 </div>
                 <div className="flex items-center gap-2">
                   <Button variant="ghost" size="sm" onClick={() => navigate('/student/jobs')}>
-                    ค้นหา
+                    Search
                   </Button>
                   <Button variant="ghost" size="sm" onClick={() => scrollJobs('left')}>
                     <ChevronLeft className="h-4 w-4" />
@@ -233,7 +233,7 @@ const StudentDashboard = () => {
                     <p className="text-sm text-muted-foreground mb-3">{job.company}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground">📍 {job.location}</span>
-                      <Button size="sm">สมัครเลย</Button>
+                      <Button size="sm">Apply Now</Button>
                     </div>
                   </div>
                 ))}
@@ -245,21 +245,21 @@ const StudentDashboard = () => {
         {/* Quick Actions */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>การดำเนินการด่วน</CardTitle>
+            <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/student/profile')}>
                 <BookOpen className="h-6 w-6" />
-                <span>แก้ไขโปรไฟล์</span>
+                <span>Edit Profile</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/student/jobs')}>
                 <Briefcase className="h-6 w-6" />
-                <span>ค้นหางาน</span>
+                <span>Find Jobs</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/student/messages')}>
                 <MessageSquare className="h-6 w-6" />
-                <span>ข้อความ</span>
+                <span>Messages</span>
               </Button>
             </div>
           </CardContent>
