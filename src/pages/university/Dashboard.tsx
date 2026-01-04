@@ -9,30 +9,30 @@ const UniversityDashboard = () => {
   const navigate = useNavigate();
 
   const stats = [
-    { label: "นักศึกษาทั้งหมด", value: "1,245", icon: Users, color: "text-primary", trend: "+12%" },
-    { label: "บริษัทพาร์ทเนอร์", value: "89", icon: Building2, color: "text-success", trend: "+8%" },
-    { label: "ตำแหน่งงานเปิดรับ", value: "156", icon: Briefcase, color: "text-warning", trend: "+15%" },
-    { label: "การจ้างงานสำเร็จ", value: "342", icon: TrendingUp, color: "text-accent", trend: "+23%" },
+    { label: "Total Students", value: "1,245", icon: Users, color: "text-primary", trend: "+12%" },
+    { label: "Partner Companies", value: "89", icon: Building2, color: "text-success", trend: "+8%" },
+    { label: "Open Positions", value: "156", icon: Briefcase, color: "text-warning", trend: "+15%" },
+    { label: "Successful Placements", value: "342", icon: TrendingUp, color: "text-accent", trend: "+23%" },
   ];
 
   const pendingApprovals = [
-    { id: 1, company: "บริษัท เทคโนโลยี ABC", type: "ขอเข้าร่วม", date: "2 วันที่แล้ว", status: "pending" },
-    { id: 2, company: "บริษัท การเงิน XYZ", type: "ขอเข้าร่วม", date: "3 วันที่แล้ว", status: "pending" },
-    { id: 3, company: "บริษัท Startup Innovation", type: "ขอเข้าร่วม", date: "5 วันที่แล้ว", status: "pending" },
+    { id: 1, company: "ABC Technology Company", type: "Join Request", date: "2 days ago", status: "pending" },
+    { id: 2, company: "XYZ Finance Company", type: "Join Request", date: "3 days ago", status: "pending" },
+    { id: 3, company: "Innovation Startup Company", type: "Join Request", date: "5 days ago", status: "pending" },
   ];
 
   const recentActivities = [
-    { id: 1, type: "placement", message: "นักศึกษา 15 คน ได้รับการจ้างงานในเดือนนี้", time: "1 ชั่วโมงที่แล้ว", icon: CheckCircle, color: "text-green-600" },
-    { id: 2, type: "company", message: "บริษัท Tech Solutions ลงประกาศงาน 3 ตำแหน่ง", time: "3 ชั่วโมงที่แล้ว", icon: Briefcase, color: "text-blue-600" },
-    { id: 3, type: "student", message: "นักศึกษาใหม่ 45 คน ลงทะเบียนในสัปดาห์นี้", time: "1 วันที่แล้ว", icon: Users, color: "text-purple-600" },
-    { id: 4, type: "warning", message: "ประกาศงาน 2 รายการรอการตรวจสอบ", time: "2 วันที่แล้ว", icon: AlertCircle, color: "text-yellow-600" },
+    { id: 1, type: "placement", message: "15 students hired this month", time: "1 hour ago", icon: CheckCircle, color: "text-green-600" },
+    { id: 2, type: "company", message: "Tech Solutions posted 3 job positions", time: "3 hours ago", icon: Briefcase, color: "text-blue-600" },
+    { id: 3, type: "student", message: "45 new students registered this week", time: "1 day ago", icon: Users, color: "text-purple-600" },
+    { id: 4, type: "warning", message: "2 job postings pending review", time: "2 days ago", icon: AlertCircle, color: "text-yellow-600" },
   ];
 
   const topCompanies = [
-    { id: 1, name: "บริษัท เทคโนโลยี A", hires: 45, rating: 4.8 },
-    { id: 2, name: "บริษัท การเงิน B", hires: 38, rating: 4.6 },
-    { id: 3, name: "บริษัท Consulting C", hires: 32, rating: 4.7 },
-    { id: 4, name: "บริษัท E-commerce D", hires: 28, rating: 4.5 },
+    { id: 1, name: "Technology A Company", hires: 45, rating: 4.8 },
+    { id: 2, name: "Finance B Company", hires: 38, rating: 4.6 },
+    { id: 3, name: "Consulting C Company", hires: 32, rating: 4.7 },
+    { id: 4, name: "E-commerce D Company", hires: 28, rating: 4.5 },
   ];
 
   return (
@@ -40,8 +40,8 @@ const UniversityDashboard = () => {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">แดชบอร์ดมหาวิทยาลัย 🏛️</h1>
-          <p className="text-muted-foreground">ภาพรวมการจัดการระบบจับคู่งาน</p>
+          <h1 className="text-3xl font-bold mb-2">University Dashboard 🏛️</h1>
+          <p className="text-muted-foreground">Job matching system management overview</p>
         </div>
 
         {/* Stats Cards */}
@@ -72,12 +72,12 @@ const UniversityDashboard = () => {
                 <div>
                   <CardTitle className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-warning" />
-                    รอการอนุมัติ
+                    Pending Approvals
                   </CardTitle>
-                  <CardDescription>บริษัทที่รอการตรวจสอบและอนุมัติ</CardDescription>
+                  <CardDescription>Companies pending review and approval</CardDescription>
                 </div>
                 <Button variant="ghost" size="sm" onClick={() => navigate('/university/approvals')}>
-                  ดูทั้งหมด
+                  View All
                 </Button>
               </div>
             </CardHeader>
@@ -89,12 +89,12 @@ const UniversityDashboard = () => {
                       <h4 className="font-semibold">{approval.company}</h4>
                       <p className="text-sm text-muted-foreground">{approval.type}</p>
                     </div>
-                    <Badge variant="outline" className="text-yellow-600">รอดำเนินการ</Badge>
+                    <Badge variant="outline" className="text-yellow-600">Pending</Badge>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-muted-foreground">{approval.date}</span>
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline">ตรวจสอบ</Button>
+                      <Button size="sm" variant="outline">Review</Button>
                     </div>
                   </div>
                 </div>
@@ -107,8 +107,8 @@ const UniversityDashboard = () => {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle>กิจกรรมล่าสุด</CardTitle>
-                  <CardDescription>ความเคลื่อนไหวในระบบ</CardDescription>
+                  <CardTitle>Recent Activities</CardTitle>
+                  <CardDescription>System activities</CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -133,11 +133,11 @@ const UniversityDashboard = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>บริษัทพาร์ทเนอร์ยอดนิยม</CardTitle>
-                <CardDescription>บริษัทที่จ้างนักศึกษามากที่สุด</CardDescription>
+                <CardTitle>Top Partner Companies</CardTitle>
+                <CardDescription>Companies hiring the most students</CardDescription>
               </div>
               <Button variant="ghost" size="sm" onClick={() => navigate('/university/reports')}>
-                ดูรายงาน
+                View Reports
               </Button>
             </div>
           </CardHeader>
@@ -151,14 +151,14 @@ const UniversityDashboard = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold">{company.name}</h4>
-                      <p className="text-sm text-muted-foreground">{company.hires} การจ้างงาน</p>
+                      <p className="text-sm text-muted-foreground">{company.hires} hires</p>
                     </div>
                   </div>
                   <div className="text-right">
                     <div className="flex items-center gap-1 text-yellow-600">
                       ⭐ {company.rating}
                     </div>
-                    <p className="text-xs text-muted-foreground">คะแนนเฉลี่ย</p>
+                    <p className="text-xs text-muted-foreground">Average rating</p>
                   </div>
                 </div>
               ))}
@@ -169,25 +169,25 @@ const UniversityDashboard = () => {
         {/* Quick Actions */}
         <Card>
           <CardHeader>
-            <CardTitle>การดำเนินการด่วน</CardTitle>
+            <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/university/approvals')}>
                 <CheckCircle className="h-6 w-6" />
-                <span>อนุมัติบริษัท</span>
+                <span>Approve Companies</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/university/reports')}>
                 <TrendingUp className="h-6 w-6" />
-                <span>ดูรายงาน</span>
+                <span>View Reports</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" onClick={() => navigate('/university/announcements')}>
                 <AlertCircle className="h-6 w-6" />
-                <span>สร้างประกาศ</span>
+                <span>Create Announcement</span>
               </Button>
               <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2">
                 <Users className="h-6 w-6" />
-                <span>จัดการนักศึกษา</span>
+                <span>Manage Students</span>
               </Button>
             </div>
           </CardContent>

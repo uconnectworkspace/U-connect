@@ -9,18 +9,18 @@ const Reports = () => {
   const navigate = useNavigate();
 
   const monthlyStats = [
-    { month: "มกราคม", students: 145, companies: 23, placements: 89 },
-    { month: "กุมภาพันธ์", students: 167, companies: 28, placements: 102 },
-    { month: "มีนาคม", students: 189, companies: 31, placements: 124 },
-    { month: "เมษายน", students: 203, companies: 35, placements: 138 },
+    { month: "January", students: 145, companies: 23, placements: 89 },
+    { month: "February", students: 167, companies: 28, placements: 102 },
+    { month: "March", students: 189, companies: 31, placements: 124 },
+    { month: "April", students: 203, companies: 35, placements: 138 },
   ];
 
   const departmentStats = [
-    { name: "วิศวกรรมคอมพิวเตอร์", students: 234, placements: 187, rate: 79.9 },
-    { name: "บริหารธุรกิจ", students: 198, placements: 145, rate: 73.2 },
-    { name: "วิศวกรรมไฟฟ้า", students: 167, placements: 119, rate: 71.3 },
-    { name: "วิทยาการคอมพิวเตอร์", students: 156, placements: 108, rate: 69.2 },
-    { name: "การตลาด", students: 145, placements: 95, rate: 65.5 },
+    { name: "Computer Engineering", students: 234, placements: 187, rate: 79.9 },
+    { name: "Business Administration", students: 198, placements: 145, rate: 73.2 },
+    { name: "Electrical Engineering", students: 167, placements: 119, rate: 71.3 },
+    { name: "Computer Science", students: 156, placements: 108, rate: 69.2 },
+    { name: "Marketing", students: 145, placements: 95, rate: 65.5 },
   ];
 
   return (
@@ -29,23 +29,23 @@ const Reports = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Button variant="ghost" onClick={() => navigate('/university/dashboard')} className="mb-4">
-            ← กลับไปแดชบอร์ด
+            ← Back to Dashboard
           </Button>
-          <h1 className="text-3xl font-bold mb-2">รายงานและสถิติ 📊</h1>
-          <p className="text-muted-foreground">ข้อมูลสถิติและการวิเคราะห์การจับคู่งาน</p>
+          <h1 className="text-3xl font-bold mb-2">Reports and Statistics 📊</h1>
+          <p className="text-muted-foreground">Statistical data and job matching analysis</p>
         </div>
 
         {/* Filter */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>กรองข้อมูล</CardTitle>
+            <CardTitle>Filter Data</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Select defaultValue="2024">
                 <SelectTrigger>
                   <Calendar className="h-4 w-4 mr-2" />
-                  <SelectValue placeholder="เลือกปี" />
+                  <SelectValue placeholder="Select year" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="2024">2024</SelectItem>
@@ -55,18 +55,18 @@ const Reports = () => {
               </Select>
               <Select defaultValue="all">
                 <SelectTrigger>
-                  <SelectValue placeholder="เลือกคณะ" />
+                  <SelectValue placeholder="Select faculty" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">ทุกคณะ</SelectItem>
-                  <SelectItem value="engineering">วิศวกรรมศาสตร์</SelectItem>
-                  <SelectItem value="business">บริหารธุรกิจ</SelectItem>
-                  <SelectItem value="science">วิทยาศาสตร์</SelectItem>
+                  <SelectItem value="all">All Faculties</SelectItem>
+                  <SelectItem value="engineering">Engineering</SelectItem>
+                  <SelectItem value="business">Business Administration</SelectItem>
+                  <SelectItem value="science">Science</SelectItem>
                 </SelectContent>
               </Select>
               <Button>
                 <Download className="h-4 w-4 mr-2" />
-                ดาวน์โหลดรายงาน
+                Download Report
               </Button>
             </div>
           </CardContent>
@@ -82,7 +82,7 @@ const Reports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">1,245</p>
-                  <p className="text-sm text-muted-foreground">นักศึกษาทั้งหมด</p>
+                  <p className="text-sm text-muted-foreground">Total Students</p>
                 </div>
               </div>
             </CardContent>
@@ -95,7 +95,7 @@ const Reports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">89</p>
-                  <p className="text-sm text-muted-foreground">บริษัทพาร์ทเนอร์</p>
+                  <p className="text-sm text-muted-foreground">Partner Companies</p></p>
                 </div>
               </div>
             </CardContent>
@@ -108,7 +108,7 @@ const Reports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">453</p>
-                  <p className="text-sm text-muted-foreground">การจับคู่สำเร็จ</p>
+                  <p className="text-sm text-muted-foreground">Successful Placements</p>
                 </div>
               </div>
             </CardContent>
@@ -121,7 +121,7 @@ const Reports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">72.4%</p>
-                  <p className="text-sm text-muted-foreground">อัตราความสำเร็จ</p>
+                  <p className="text-sm text-muted-foreground">Success Rate</p>
                 </div>
               </div>
             </CardContent>
@@ -131,8 +131,8 @@ const Reports = () => {
         {/* Monthly Trends */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>สถิติรายเดือน</CardTitle>
-            <CardDescription>ข้อมูลการจับคู่งานในแต่ละเดือน</CardDescription>
+            <CardTitle>Monthly Statistics</CardTitle>
+            <CardDescription>Job matching data for each month</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -142,16 +142,16 @@ const Reports = () => {
                     <h4 className="font-semibold mb-2">{stat.month} 2024</h4>
                     <div className="grid grid-cols-3 gap-4 text-sm">
                       <div>
-                        <p className="text-muted-foreground">นักศึกษาใหม่</p>
-                        <p className="font-semibold text-primary">{stat.students} คน</p>
+                        <p className="text-muted-foreground">New Students</p>
+                        <p className="font-semibold text-primary">{stat.students} students</p>
                       </div>
                       <div>
-                        <p className="text-muted-foreground">บริษัทใหม่</p>
-                        <p className="font-semibold text-success">{stat.companies} แห่ง</p>
+                        <p className="text-muted-foreground">New Companies</p>
+                        <p className="font-semibold text-success">{stat.companies} companies</p>
                       </div>
                       <div>
-                        <p className="text-muted-foreground">จับคู่สำเร็จ</p>
-                        <p className="font-semibold text-accent">{stat.placements} คู่</p>
+                        <p className="text-muted-foreground">Successful Matches</p>
+                        <p className="font-semibold text-accent">{stat.placements} matches</p>
                       </div>
                     </div>
                   </div>
@@ -164,8 +164,8 @@ const Reports = () => {
         {/* Department Performance */}
         <Card>
           <CardHeader>
-            <CardTitle>สถิติตามสาขาวิชา</CardTitle>
-            <CardDescription>อัตราการจับคู่งานแยกตามสาขา</CardDescription>
+            <CardTitle>Statistics by Department</CardTitle>
+            <CardDescription>Job matching rate by department</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -179,13 +179,13 @@ const Reports = () => {
                       <div>
                         <h4 className="font-semibold">{dept.name}</h4>
                         <p className="text-sm text-muted-foreground">
-                          {dept.students} นักศึกษา • จับคู่สำเร็จ {dept.placements} คน
+                          {dept.students} students • {dept.placements} successful placements
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="text-2xl font-bold text-green-600">{dept.rate}%</p>
-                      <p className="text-xs text-muted-foreground">อัตราความสำเร็จ</p>
+                      <p className="text-xs text-muted-foreground">Success Rate</p>
                     </div>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">

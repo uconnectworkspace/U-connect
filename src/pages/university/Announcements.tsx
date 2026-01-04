@@ -18,17 +18,17 @@ const Announcements = () => {
   const [audience, setAudience] = useState("all");
 
   const recentAnnouncements = [
-    { id: 1, title: "เปิดรับสมัครงานฤดูร้อน 2024", audience: "นักศึกษา", date: "2 วันที่แล้ว", views: 1234 },
-    { id: 2, title: "กิจกรรม Job Fair ประจำเดือนมีนาคม", audience: "ทั้งหมด", date: "5 วันที่แล้ว", views: 2456 },
-    { id: 3, title: "นโยบายใหม่สำหรับบริษัทพาร์ทเนอร์", audience: "บริษัท", date: "1 สัปดาห์ที่แล้ว", views: 567 },
+    { id: 1, title: "Summer 2024 Job Recruitment Open", audience: "Students", date: "2 days ago", views: 1234 },
+    { id: 2, title: "March Job Fair Event", audience: "All", date: "5 days ago", views: 2456 },
+    { id: 3, title: "New Policy for Partner Companies", audience: "Companies", date: "1 week ago", views: 567 },
   ];
 
   const handleSendAnnouncement = () => {
     if (!title || !message) {
-      toast.error("กรุณากรอกข้อมูลให้ครบถ้วน");
+      toast.error("Please fill in all required fields");
       return;
     }
-    toast.success("ส่งประกาศเรียบร้อยแล้ว");
+    toast.success("Announcement sent successfully");
     setTitle("");
     setMessage("");
     setAudience("all");
@@ -36,12 +36,12 @@ const Announcements = () => {
 
   const getAudienceBadge = (audience: string) => {
     switch (audience) {
-      case "นักศึกษา":
-        return <Badge variant="outline" className="text-primary">นักศึกษา</Badge>;
-      case "บริษัท":
-        return <Badge variant="outline" className="text-success">บริษัท</Badge>;
-      case "ทั้งหมด":
-        return <Badge variant="outline" className="text-accent">ทั้งหมด</Badge>;
+      case "Students":
+        return <Badge variant="outline" className="text-primary">Students</Badge>;
+      case "Companies":
+        return <Badge variant="outline" className="text-success">Companies</Badge>;
+      case "All":
+        return <Badge variant="outline" className="text-accent">All</Badge>;
       default:
         return <Badge variant="outline">{audience}</Badge>;
     }
@@ -53,10 +53,10 @@ const Announcements = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Button variant="ghost" onClick={() => navigate('/university/dashboard')} className="mb-4">
-            ← กลับไปแดชบอร์ด
+            ← Back to Dashboard
           </Button>
-          <h1 className="text-3xl font-bold mb-2">สร้างประกาศ 📢</h1>
-          <p className="text-muted-foreground">ส่งประกาศและข้อมูลสำคัญถึงนักศึกษาและบริษัทพาร์ทเนอร์</p>
+          <h1 className="text-3xl font-bold mb-2">Create Announcement 📢</h1>
+          <p className="text-muted-foreground">Send announcements and important information to students and partner companies</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -65,44 +65,44 @@ const Announcements = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Megaphone className="h-5 w-5 text-primary" />
-                สร้างประกาศใหม่
+                Create New Announcement
               </CardTitle>
-              <CardDescription>เขียนประกาศและเลือกกลุ่มเป้าหมาย</CardDescription>
+              <CardDescription>Write announcement and select target audience</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="title">หัวข้อประกาศ</Label>
+                <Label htmlFor="title">Announcement Title</Label>
                 <Input
                   id="title"
-                  placeholder="กรอกหัวข้อประกาศ..."
+                  placeholder="Enter announcement title..."
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="audience">กลุ่มเป้าหมาย</Label>
+                <Label htmlFor="audience">Target Audience</Label>
                 <Select value={audience} onValueChange={setAudience}>
                   <SelectTrigger>
-                    <SelectValue placeholder="เลือกกลุ่มเป้าหมาย" />
+                    <SelectValue placeholder="Select target audience" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">
                       <div className="flex items-center gap-2">
                         <Globe className="h-4 w-4" />
-                        <span>ทั้งหมด (นักศึกษาและบริษัท)</span>
+                        <span>All (Students and Companies)</span>
                       </div>
                     </SelectItem>
                     <SelectItem value="students">
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4" />
-                        <span>นักศึกษาเท่านั้น</span>
+                        <span>Students Only</span>
                       </div>
                     </SelectItem>
                     <SelectItem value="companies">
                       <div className="flex items-center gap-2">
                         <Building2 className="h-4 w-4" />
-                        <span>บริษัทเท่านั้น</span>
+                        <span>Companies Only</span>
                       </div>
                     </SelectItem>
                   </SelectContent>
@@ -110,10 +110,10 @@ const Announcements = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">เนื้อหาประกาศ</Label>
+                <Label htmlFor="message">Announcement Content</Label>
                 <Textarea
                   id="message"
-                  placeholder="เขียนเนื้อหาประกาศ..."
+                  placeholder="Write announcement content..."
                   className="min-h-[200px]"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
@@ -123,11 +123,11 @@ const Announcements = () => {
               <div className="flex gap-2">
                 <Button onClick={handleSendAnnouncement} className="flex-1">
                   <Send className="h-4 w-4 mr-2" />
-                  ส่งประกาศ
+                  Send Announcement
                 </Button>
                 <Button variant="outline">
                   <Eye className="h-4 w-4 mr-2" />
-                  ดูตัวอย่าง
+                  Preview
                 </Button>
               </div>
             </CardContent>
@@ -137,47 +137,47 @@ const Announcements = () => {
           <div className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">สถิติการส่งประกาศ</CardTitle>
+                <CardTitle className="text-lg">Announcement Stats</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
                   <p className="text-3xl font-bold">15</p>
-                  <p className="text-sm text-muted-foreground">ประกาศทั้งหมดเดือนนี้</p>
+                  <p className="text-sm text-muted-foreground">Total announcements this month</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold">4,567</p>
-                  <p className="text-sm text-muted-foreground">การเปิดอ่านรวม</p>
+                  <p className="text-sm text-muted-foreground">Total views</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold">89%</p>
-                  <p className="text-sm text-muted-foreground">อัตราการเปิดอ่าน</p>
+                  <p className="text-sm text-muted-foreground">Open rate</p>
                 </div>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">จำนวนผู้รับ</CardTitle>
+                <CardTitle className="text-lg">Recipients</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Users className="h-4 w-4 text-primary" />
-                    <span className="text-sm">นักศึกษา</span>
+                    <span className="text-sm">Students</span>
                   </div>
                   <span className="font-semibold">1,245</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Building2 className="h-4 w-4 text-success" />
-                    <span className="text-sm">บริษัท</span>
+                    <span className="text-sm">Companies</span>
                   </div>
                   <span className="font-semibold">89</span>
                 </div>
                 <div className="flex items-center justify-between border-t pt-3">
                   <div className="flex items-center gap-2">
                     <Globe className="h-4 w-4 text-accent" />
-                    <span className="text-sm font-semibold">รวมทั้งหมด</span>
+                    <span className="text-sm font-semibold">Total</span>
                   </div>
                   <span className="font-bold">1,334</span>
                 </div>
@@ -189,8 +189,8 @@ const Announcements = () => {
         {/* Recent Announcements */}
         <Card>
           <CardHeader>
-            <CardTitle>ประกาศล่าสุด</CardTitle>
-            <CardDescription>ประกาศที่ส่งไปแล้ว</CardDescription>
+            <CardTitle>Recent Announcements</CardTitle>
+            <CardDescription>Previously sent announcements</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -203,10 +203,10 @@ const Announcements = () => {
                         {getAudienceBadge(announcement.audience)}
                       </div>
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <span>ส่งเมื่อ {announcement.date}</span>
+                        <span>Sent {announcement.date}</span>
                         <span className="flex items-center gap-1">
                           <Eye className="h-3 w-3" />
-                          {announcement.views.toLocaleString()} ครั้ง
+                          {announcement.views.toLocaleString()} views
                         </span>
                       </div>
                     </div>

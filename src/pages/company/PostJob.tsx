@@ -87,10 +87,10 @@ const PostJob = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="location">สถานที่ *</Label>
+                    <Label htmlFor="location">Location *</Label>
                     <Input
                       id="location"
-                      placeholder="เช่น กรุงเทพฯ, รีโมท"
+                      placeholder="e.g. Bangkok, Remote"
                       required
                     />
                   </div>
@@ -98,7 +98,7 @@ const PostJob = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="salary-min">เงินเดือน (ขั้นต่ำ) *</Label>
+                    <Label htmlFor="salary-min">Salary (Minimum) *</Label>
                     <Input
                       id="salary-min"
                       type="number"
@@ -108,7 +108,7 @@ const PostJob = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="salary-max">เงินเดือน (สูงสุด) *</Label>
+                    <Label htmlFor="salary-max">Salary (Maximum) *</Label>
                     <Input
                       id="salary-max"
                       type="number"
@@ -119,7 +119,7 @@ const PostJob = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="positions">จำนวนที่รับ *</Label>
+                  <Label htmlFor="positions">Number of Positions *</Label>
                   <Input
                     id="positions"
                     type="number"
@@ -134,35 +134,35 @@ const PostJob = () => {
             {/* Job Description */}
             <Card>
               <CardHeader>
-                <CardTitle>รายละเอียดงาน</CardTitle>
-                <CardDescription>อธิบายหน้าที่และความรับผิดชอบ</CardDescription>
+                <CardTitle>Job Description</CardTitle>
+                <CardDescription>Describe duties and responsibilities</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="description">รายละเอียดงาน *</Label>
+                  <Label htmlFor="description">Job Description *</Label>
                   <Textarea
                     id="description"
-                    placeholder="อธิบายหน้าที่ความรับผิดชอบหลักของตำแหน่งนี้..."
+                    placeholder="Describe the main responsibilities of this position..."
                     rows={5}
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="requirements">คุณสมบัติผู้สมัคร *</Label>
+                  <Label htmlFor="requirements">Applicant Qualifications *</Label>
                   <Textarea
                     id="requirements"
-                    placeholder="ระบุคุณสมบัติที่ต้องการ เช่น การศึกษา, ประสบการณ์..."
+                    placeholder="Specify desired qualifications such as education, experience..."
                     rows={5}
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="benefits">สวัสดิการและผลประโยชน์</Label>
+                  <Label htmlFor="benefits">Benefits and Perks</Label>
                   <Textarea
                     id="benefits"
-                    placeholder="ระบุสวัสดิการที่บริษัทให้..."
+                    placeholder="Specify benefits provided by the company..."
                     rows={4}
                   />
                 </div>
