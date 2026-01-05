@@ -117,14 +117,15 @@ const Navbar = () => {
               </Button>
             )}
           </div>
-
+{isCompany && (
           <div className="hidden md:flex items-center gap-2">
-            {isCompany && (
+            
               <Link to="/company/messages" className="text-sm hover:underline">
                 Contact University
               </Link>
-            )}
+            
           </div>
+          )}
         </div>
       </div>
     </nav>
