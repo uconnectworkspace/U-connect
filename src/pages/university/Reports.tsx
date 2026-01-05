@@ -95,7 +95,7 @@ const Reports = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-bold">89</p>
-                  <p className="text-sm text-muted-foreground">Partner Companies</p></p>
+                  <p className="text-sm text-muted-foreground">Partner Companies</p>
                 </div>
               </div>
             </CardContent>
