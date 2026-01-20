@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import UserTypes from "@/components/UserTypes";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
+import PartnerShowcase from "@/components/PartnerShowcase";
 
 const Index = () => {
   return (
@@ -11,7 +12,9 @@ const Index = () => {
       <Hero />
       <UserTypes />
       <Features />
+      <PartnerShowcase />
       <Footer />
+
     </div>
   );
 };
