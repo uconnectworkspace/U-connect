@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Briefcase } from "lucide-react";
+import Profile from "@/assets/profile.png"
+import { Button } from "./ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   NavigationMenu,
@@ -99,6 +99,20 @@ const Navbar = () => {
               </NavigationMenu>
             )}
           </div>
+
+           {(isStudent || isCompany || isUniversity || isAdmin) && (
+            <div className="flex flex-row h-full items-center gap-5">
+             
+              <div className="h-full flex items-center gap-5">
+                <img src={Profile} alt="" className="h-[80%]"/>
+              Welcome, Student
+              </div>
+           
+              
+              </div>
+            )}
+
+          
 
           {/* <div className="flex items-center gap-4">
             {!isStudent && !isCompany && !isUniversity && !isAdmin && (

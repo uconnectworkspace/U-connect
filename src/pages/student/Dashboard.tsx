@@ -199,7 +199,7 @@ const StudentDashboard = () => {
           </Card>
 
           {/* Recommended Jobs -> Horizontal scroll with controls */}
-          <Card>
+          {/* <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
@@ -239,11 +239,11 @@ const StudentDashboard = () => {
                 ))}
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
 
         {/* Quick Actions */}
-        <Card className="mt-6">
+        {/* <Card className="mt-6">
           <CardHeader>
             <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
@@ -263,7 +263,7 @@ const StudentDashboard = () => {
               </Button>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
     </div>
   );
